@@ -18,3 +18,9 @@ Para rodar o servidor, digite:
 ```
 python manage.py runserver
 ```
+
+com o servidor rodando, entre em http://127.0.0.1:8000/admin/ para acessar a pagina de login de administração do site.
+```
+Usuario: adm
+Senha: adminimda
+```
