@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from website import *
+#from website import *
 
 # Create your models here.
 
@@ -20,11 +20,11 @@ class cidade(models.Model):
 
 class voo(models.Model):
     id = models.IntegerField(primary_key=True)
-    id_com_aerea = models.ForeignKey('website.com_area')
+    id_com_aerea = models.ForeignKey(com_aerea, related_name="voo_com_id")
     data_decolagem = models.DateTimeField()
     data_pouso = models.DateTimeField()
-    id_origem = models.ForeignKey('website.cidade')
-    id_destino = models.ForeignKey('website.cidade')
+    id_origem = models.ForeignKey(cidade, related_name="voo_id_origem")
+    id_destino = models.ForeignKey(cidade, related_name="voo_id_destino")
     preco = models.FloatField()
     assentos_totais = models.IntegerField()
 
