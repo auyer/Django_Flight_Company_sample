@@ -5,11 +5,11 @@ from django.utils import timezone
 # Create your models here.
 
 class com_aerea(models.Model):
-    id = models.IntegerField(primary_key=True)
-    nome = models.CharField(max_length=30)
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=30)
 
     def __str__(self):
-        return self.id
+        return self.name
 
 class cidade(models.Model):
     id = models.CharField(max_length=3, primary_key=True)
@@ -29,4 +29,4 @@ class voo(models.Model):
     assentos_totais = models.IntegerField()
 
     def __str__(self):
-        return self.id
+        return str(self.id)
