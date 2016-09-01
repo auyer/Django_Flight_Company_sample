@@ -5,9 +5,9 @@ from .models import com_aerea, cidade, voo
 # Create your views here.
 
 def home(request):
-    return render(request, 'website/index.html', {})
-    #voo = voo.objects.order_by('data_decolagem')
-    #return render(request, 'website/index.html', {'voo':voo})
+    #return render(request, 'website/index.html', {})
+    voo = voo.objects.order_by('data_decolagem')
+    return render(request, 'website/index.html', {'voo':voo})
 
 def voo_list(request):
     voo = voo.objects.order_by('data_decolagem')
