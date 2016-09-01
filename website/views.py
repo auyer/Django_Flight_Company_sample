@@ -16,9 +16,3 @@ def voo_list(request):
 def voo_info(request,pk):
     flight = get_object_or_404(voo, pk=pk)
     return render(request, 'website/voo_detail.html', {'flight':flight})
-
-def city_list(request):
-    return render(request, 'website/city_list.html', {})
-
-def com_aerea_list(request):
-    return render(request, 'website/com_aerea_list.html', {})
