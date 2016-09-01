@@ -13,7 +13,7 @@ class com_aerea(models.Model):
 
 class cidade(models.Model):
     id = models.CharField(max_length=3, primary_key=True)
-    nome = models.CharField(max_length=30)
+    name = models.CharField(max_length=30)
 
     def __str__(self):
         return self.id

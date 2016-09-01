@@ -8,11 +8,12 @@
     <div class="well">
       <br>
         <h3>Flight Number: {{ flight.id }}</h3>
-        <p>Flight From: {{ flight.id_origem }}</p>
-        <p>Flight To: {{ flight.id_destino }}</p>
-        <p>{{ flight.data_decolagem }}</p>
-        <p>{{ flight.data_pouso }}</p>
-        <p>{{ flight.preco }}</p>
+        <h4>Company: {{flight.id_com_aerea.name}}</h4>
+        <p>Flight From: {{ flight.id_origem.name }}</p>
+        <p>Flight To: {{ flight.id_destino.name }}</p>
+        <p>Departure:{{ flight.data_decolagem }}</p>
+        <p>Arrival:{{ flight.data_pouso }}</p>
+        <p>Price: U$ {{ flight.preco }}</p>
     </div>
 {% endfor %}
 </div>
