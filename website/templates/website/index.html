@@ -1,6 +1,6 @@
 {% extends 'website/base.html' %}
 {% block content %}
-<div class="row">
+<div class=" jumbotron row">
     <div class=" col-md-offset-1 well col-md-4 col-xs-12">
         <h4 class="text-center">CONSULTA DE PASSAGENS</h4>
         <form class=" form-horizontal" method="post" action="cadastrar-enquete.php">
@@ -47,6 +47,15 @@
     </div>
     <div class="well  col-md-offset-1 col-md-4 col-xs-12">
         <h4 class="text-center">PROMOÇÕES</h4>
+        <a href="/flight/{{flight.id}}"><div class="well">
+          <h3> Flight From: {{ flight.id_origem.name }}</h3> <h3>To {{ flight.id_destino.name }}</h3>
+          <h4>For only P${{ flight.preco }}</h4>
+          <p>{{flight.id_com_aerea.name}}</p>
+          <p>Flight Number: {{ flight.id }}</p>
+            <p>Departure: {{ flight.data_decolagem }}</p>
+            <p>Arrival: {{ flight.data_pouso }}</p>
+
+        </div></a>
     </div>
 </div>
 
