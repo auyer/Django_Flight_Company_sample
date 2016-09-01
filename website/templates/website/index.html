@@ -1,5 +1,51 @@
 {% extends 'website/base.html' %}
 {% block content %}
+
+
+<div class="row">
+  <div class=" well col-md-6 col-xs-12">
+    <h4 class="text-center">CONSULTA DE PASSAGENS</h4>
+    <form method="post" action="cadastrar-enquete.php">
+      <div class="form-group">
+      <div class="">
+<h6 class="text-center">origem</h6>
+
+<select name="Origem">
+<option value="MTP">Metropolis</option>
+<option value="LVT">Lavander Town</option>
+<option value="ISS">International Space Station</option>
+<option value="GTH">Gothan City</option>
+<option value="BSB">Brasilia</option>
+<option value="ATL">Atlantis</option>
+</select>
+</div>
+<div class="">
+<h6 class="text-center">Destino</h6>
+<select name="Destino">
+<option value="MTP">Metropolis</option>
+<option value="LVT">Lavander Town</option>
+<option value="ISS">International Space Station</option>
+<option value="GTH">Gothan City</option>
+<option value="BSB">Brasilia</option>
+<option value="ATL">Atlantis</option>
+</select>
+</div>
+</div>
+<h6 class="text-center">Ida</h6>
+<input type="date">
+<h6 class="text-center">Volta</h6>
+<input type="date">
+      </div>
+<input type="submit" value="Enviar" />
+<input type="reset" value="Cancelar" />
+</form>
+
+  </div>
+  <div class="well col-md-6 col-xs-12">
+    <h4 class="text-center">PROMOÇÕES</h4>
+
+  </div>
+</div>
 <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
