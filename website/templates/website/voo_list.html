@@ -1,14 +1,19 @@
 
 {% extends 'website/base.html' %}
 {% block content %}
-{% for website_voo in website_voo %}
-    <div>
-        <p>Flight Number: {{ website_voo.id }}</p>
-        <h1>Flight From: {{ website_voo.id_origem }}</h1>
-        <h1>Flight To: {{ website_voo.id_destino }}</h1>
-        <p>{{ website_voo.data_decolagem }}</p>
-        <p>{{ website_voo.data_pouso }}</p>
-        <p>{{ website_voo.preco }}</p>
+<div class=" jumbotron">
+
+
+{% for flight in flight %}
+    <div class="well">
+      <br>
+        <h3>Flight Number: {{ flight.id }}</h3>
+        <p>Flight From: {{ flight.id_origem }}</p>
+        <p>Flight To: {{ flight.id_destino }}</p>
+        <p>{{ flight.data_decolagem }}</p>
+        <p>{{ flight.data_pouso }}</p>
+        <p>{{ flight.preco }}</p>
     </div>
 {% endfor %}
+</div>
 {% endblock %}

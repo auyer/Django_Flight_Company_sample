@@ -6,12 +6,12 @@ from .models import com_aerea, cidade, voo
 
 def home(request):
     #return render(request, 'website/index.html', {})
-    voo = voo.objects.order_by('data_decolagem')
-    return render(request, 'website/index.html', {'voo':voo})
+    flight = voo.objects.order_by('data_decolagem')
+    return render(request, 'website/index.html', {'flight':flight})
 
 def voo_list(request):
-    voo = voo.objects.order_by('data_decolagem')
-    return render(request, 'website/voo_list.html', {'voo':voo})
+    flight = voo.objects.order_by('data_decolagem')
+    return render(request, 'website/voo_list.html', {'flight':flight})
 
 def voo_info(request,pk):
     voo = get_object_or_404(voo, pk=pk)
