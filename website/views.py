@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 from django.http import HttpResponse
 from django.shortcuts import render , get_object_or_404
-=======
 from django.shortcuts import render , get_object_or_404, get_list_or_404
 import random
->>>>>>> aab94e74828f4574e1eb5ee968fab26661b9c559
 from django.utils import timezone
 from .models import com_aerea, cidade, voo
 from django.db.models import Q
@@ -24,23 +21,21 @@ def voo_list(request):
 def voo_info(request,pk):
     flight = get_object_or_404(voo, pk=pk)
     return render(request, 'website/voo_detail.html', {'flight':flight})
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 def search_form(request):
-    return render(request, 'website/searchTest.html')
+    return render(request, 'website/searchTest.html')#redirecionamento para a página html de busca
 
 def search(request):
-    error = False
-    if 'q' in request.GET:
-        q = request.GET['q']
-        if not q:
-            error = True
-        else:
-            flight = voo.objects.filter(id_destino_icontains=q)
+    error = False 
+    if 'q' in request.GET: #se o request receber o parametro de nome q 
+        q = request.GET['q']# então a variável q recebe o parâmetro supracitado
+        if not q:#se o q estiver vazio
+            error = True #erro se torna verdadeiro
+        else: # se o q não estiver vazio 
+            flight = voo.objects.filter(id_destino=q) #a variável flight recebe o resultado se o id_destino for igual a q
             return render(request, 'website/search_results.html',
-                {'flight': flight, 'query': q})
-    return render(request, 'website/search_results.html', {'error': error})
+                {'flight': flight, 'query': q})#no caso de não haver um erro a página redireciona para o arquivo html de mostra de resultados levando consigo os parâmetros flight(contem o resultado) e q(entrada da pesquisa)
+    return render(request, 'website/searchTest.html', {'error': error})#no caso de haver um erro redireciona a página atual com o parametro error que é tratado na mesma 
 
 
 
@@ -65,7 +60,7 @@ def get_closest_to(self, target):
         except IndexError:
             return closest_greater_qs[0]
     except IndexError:
-        raise self.model.DoesNotExist("O percurso não existe")
+        raise self.model.DoesNotExist("O percurso nao existe")
 
     if closest_greater.dt - target > target - closest_less.dt:
         return closest_less
