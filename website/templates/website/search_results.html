@@ -4,13 +4,24 @@
     <title>Busca</title>
 </head>
 <body>
-   <p>Você buscou por: <strong>{{ query }}</strong></p>
+   <p>Você buscou por voos de origem: <strong>{{ f }}</strong> e destino <strong>{{ query }}</strong></p>
 
 {% if flight %}
     <p>Encontrado {{ flight|length }} voo{{ flight|pluralize }}.</p>
     <ul>
-        {% for flight in voo %}
-        <li>{{ flight.id }}</li>
+        {% for flight in flight %}
+	<div class="well">
+      <br>
+      <a href="/flight/{{flight.id}}"><h4>Flight Number: {{ flight.id }}</h4></a>
+        <h3>Company: {{flight.id_com_aerea.name}}</h3>
+        <p>Flight From {{ flight.id_origem.name }} To {{ flight.id_destino.name }}</p>
+        <p>Departure: {{ flight.data_decolagem }}</p>
+        <p>Arrival: {{ flight.data_pouso }}</p>
+        <p>Price: P${{ flight.preco }}</p>
+    </div>
+
+
+       <!-- <li>{{ flight.id }}</li>-->
         {% endfor %}
     </ul>
 {% else %}
@@ -18,4 +29,4 @@
 {% endif %}
 </body>
 </html>
-go
+
