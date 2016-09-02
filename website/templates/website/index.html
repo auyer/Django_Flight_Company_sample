@@ -5,11 +5,11 @@
 <div class=" jumbotron row">
     <div class=" col-md-offset-1 well col-md-4 col-xs-12">
         <h4 class="text-center">CONSULTA DE PASSAGENS</h4>
-        <form class=" form-horizontal" method="post" action="cadastrar-enquete.php">
+        <form class=" form-horizontal" method="get" action="../sresults/">
             <div class=" well row form-horizontal">
                 <div class="col-md-6  ">
                     <label for="Origem" class="control-label text-center">&nbsp;Origem: </label>
-                    <select name="Origem">
+                    <select name="f">
                       <option value="MTP">Metropolis</option>
                       <option value="LVT">Lavander Town</option>
                       <option value="ISS">International Space Station</option>
@@ -20,7 +20,7 @@
                 </div>
                 <div class=" col-md-6 ">
                     <label for="Destino" class="control-label text-center">&nbsp;Destino: </label>
-                    <select name="Destino">
+                    <select name="q">
 <option value="MTP">Metropolis</option>
 <option value="LVT">Lavander Town</option>
 <option value="ISS">International Space Station</option>
@@ -41,8 +41,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class=" col-md-offset-4 col-sm-2"><button class="btn btn-danger"><input type="submit" class="hide" name="send"/><a href="#"  class=" btn-danger" role="button">Enviar </a></button></div>
-                <div class=" col-sm-2"><button class="btn btn-danger"><input type="submit" class="hide" name="clear"/><a href="#"  class=" btn-danger" role="button">Cancelar </a></button></div>
+                <div class=" col-md-offset-4 col-sm-2"><button class="btn btn-danger"><input type="submit" class="hide" name="send" value="search/><a href="#"  class=" btn-danger" role="button">Enviar </a></button></div>
+                <div class=" col-sm-2"><button class="btn btn-danger"><input type="submit" class="hide" name="clear" "/><a href="#"  class=" btn-danger" role="button">Cancelar </a></button></div>
             </div>
 
         </form>
