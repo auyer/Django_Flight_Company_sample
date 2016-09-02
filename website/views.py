@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 from django.http import HttpResponse
-from django.shortcuts import render , get_object_or_404
-=======
 from django.shortcuts import render , get_object_or_404, get_list_or_404
 import random
->>>>>>> aab94e74828f4574e1eb5ee968fab26661b9c559
 from django.utils import timezone
 from .models import com_aerea, cidade, voo
 from django.db.models import Q
@@ -24,8 +20,6 @@ def voo_list(request):
 def voo_info(request,pk):
     flight = get_object_or_404(voo, pk=pk)
     return render(request, 'website/voo_detail.html', {'flight':flight})
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 def search_form(request):
     return render(request, 'website/searchTest.html')
@@ -71,4 +65,3 @@ def get_closest_to(self, target):
         return closest_less
     else:
         return closest_greater
-
