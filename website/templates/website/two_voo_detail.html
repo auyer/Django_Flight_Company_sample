@@ -1,11 +1,8 @@
- {% extends 'website/base.html' %}
-{% block title %}{{ page.title }}{% endblock %}
- {% block content %}
+ {% extends 'website/base.html' %} {% block title %}{{ page.title }}{% endblock %} {% block content %}
 
 
 <div class="jumbotron">
-    <br>
-    {% for flightT in flightT %} {% for flightF in flightF%}
+    <br> {% for flightT in flightT %} {% for flightF in flightF%}
     <div class="well">
 
 
@@ -29,5 +26,4 @@
 
     {% endfor %} {% endfor %}
 </div>
-<br>
-{% endblock %}
+<br> {% endblock %}

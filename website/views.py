@@ -13,6 +13,12 @@ def home(request):
     flight = voo.objects.all()[random_idx]
     return render(request, 'website/index.html', {'flight':flight})
 
+def login(request):
+    return render(request, 'website/cadastro.html')
+
+def promo(request):
+    return render(request, 'website/promo.html')
+
 def voo_list(request):
     flight = voo.objects.order_by('data_decolagem')
     return render(request, 'website/voo_list.html', {'flight':flight})
