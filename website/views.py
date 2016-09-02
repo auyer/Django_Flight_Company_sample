@@ -32,14 +32,14 @@ def search_form(request):
 
 def search(request):
     error = False
-    if 'q' in request.GET: #se o request receber o parametro de nome q
+    if 'q' in request.GET and 'f' in request.GET: #se o request receber o parametro de nome q
         q = request.GET['q']# entao a variavel q recebe o parametro supracitado
-        if not q:#se o q estiver vazio
+	f = request.GET['f']
+        if not q or not f:#se o q estiver vazio
             error = True #erro se torna verdadeiro
         else: # se o q nao estiver vazio
-            flight = voo.objects.filter(id_destino=q) #a variavel flight recebe o resultado se o id_destino for igual a q
-            return render(request, 'website/search_results.html',
-                {'flight': flight, 'query': q})#no caso de nao haver um erro a pagina redireciona para o arquivo html de mostra de resultados levando consigo os parametros flight(contem o resultado) e q(entrada da pesquisa)
+            flight = (voo.objects.filter(id_destino=q).filter(id_origem=f))#a variavel flight recebe o resultado se o id_destino for igual a q
+            return render(request, 'website/search_results.html' , {'flight': flight, 'query': q , 'f' : f})#no caso de nao haver um erro a pagina redireciona para o arquivo html de mostra de resultados levando consigo os parametros flight(contem o resultado) e q(entrada da pesquisa)
     return render(request, 'website/searchTest.html', {'error': error})#no caso de haver um erro redireciona a pagina atual com o parametro error que e tratado na mesma
 
 
