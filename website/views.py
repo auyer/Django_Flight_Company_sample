@@ -1,5 +1,8 @@
 from django.http import HttpResponse
+<<<<<<< HEAD
 from django.shortcuts import render , get_object_or_404
+=======
+>>>>>>> d582ee4422326a87efcc65454cf7cc3b4e24c42d
 from django.shortcuts import render , get_object_or_404, get_list_or_404
 import random
 from django.utils import timezone
@@ -66,4 +69,3 @@ def get_closest_to(self, target):
         return closest_less
     else:
         return closest_greater
-
