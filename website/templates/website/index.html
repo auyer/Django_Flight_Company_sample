@@ -1,5 +1,6 @@
 {% extends 'website/base.html' %}
 {% block title %}HOME{% endblock %}
+{% load staticfiles %}
 {% block content %}
 <div class=" jumbotron row">
     <div class=" col-md-offset-1 well col-md-4 col-xs-12">
@@ -48,231 +49,67 @@
     </div>
     <div class="well  col-md-offset-1 col-md-4 col-xs-12">
         <h4 class="text-center">PROMOÇÕES</h4>
-        <a href="/flight/{{flight.id}}"><div class="well">
-          <h3> Flight From: {{ flight.id_origem.name }}</h3> <h3>To {{ flight.id_destino.name }}</h3>
-          <h4>For only P${{ flight.preco }}</h4>
-          <p>{{flight.id_com_aerea.name}}</p>
-          <p>Flight Number: {{ flight.id }}</p>
-            <p>Departure: {{ flight.data_decolagem }}</p>
-            <p>Arrival: {{ flight.data_pouso }}</p>
+          <div class="w3-content w3-display-container" style="max-width:300px">
+            <img class="mySlides" src="{% static 'images/promo1.jpg' %}" style="width:100%">
+            <img class="mySlides" src="{% static 'images/promo2.png' %}" style="width:100%">
+            <img class="mySlides" src="{% static 'images/promo3.png' %}" style="width:100%">
+            <div class="w3-center w3-section w3-large w3-text-white w3-display-bottomleft" style="width:100%">
+              <div class="w3-left w3-padding-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+              <div class="w3-right w3-padding-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+              <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+              <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+              <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+            </div>
+          </div>
 
-        </div></a>
+          <script>
+          var slideIndex = 1;
+          showDivs(slideIndex);
+
+          function plusDivs(n) {
+            showDivs(slideIndex += n);
+          }
+
+          function currentDiv(n) {
+            showDivs(slideIndex = n);
+          }
+
+          function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > x.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = x.length}
+            for (i = 0; i < x.length; i++) {
+               x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+               dots[i].className = dots[i].className.replace(" w3-white", "");
+            }
+            x[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " w3-white";
+          }
+          </script>
     </div>
 </div>
 
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
+<div class="row">
+<h1 class="text-center">Voos em Destaque</h1>
+<div class="col-md-4"></div>
+<a href="/flight/{{flight.id}}">
+  <div class="  col-md-4 well">
+      <h3> Flight From: {{ flight.id_origem.name }}</h3>
+      <h3>To {{ flight.id_destino.name }}</h3>
+      <h4>For only P${{ flight.preco }}</h4>
+      <p>{{flight.id_com_aerea.name}}</p>
+      <p>Flight Number: {{ flight.id }}</p>
+      <p>Departure: {{ flight.data_decolagem }}</p>
+      <p>Arrival: {{ flight.data_pouso }}</p>
+
+  </div>
+  </a>
+</div>
 <hr>
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <div class="row">
-                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-2"><img class="img-circle" alt="Free Shipping" src="images/40X40.gif"></div>
-                <div class="col-lg-6 col-md-9 col-sm-9 col-xs-9">
-                    <h4>Free Shipping</h4>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <div class="row">
-                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-2"><img class="img-circle" alt="Free Shipping" src="images/40X40.gif"></div>
-                <div class="col-lg-6 col-md-9 col-sm-9 col-xs-9">
-                    <h4>Free Returns</h4>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <div class="row">
-                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-2"><img class="img-circle" alt="Free Shipping" src="images/40X40.gif"></div>
-                <div class="col-lg-6 col-md-9 col-sm-9 col-xs-9">
-                    <h4>Low Prices</h4>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<hr>
-<h2 class="text-center">RECOMMENDED PRODUCTS</h2>
-<hr>
-<div class="container">
-    <div class="row text-center">
-        <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-            <div class="thumbnail"> <img src="images/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
-                <div class="caption">
-                    <h3>Product</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                    <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-            <div class="thumbnail"> <img src="images/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
-                <div class="caption">
-                    <h3>Product</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                    <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-            <div class="thumbnail"> <img src="images/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
-                <div class="caption">
-                    <h3>Product</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                    <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6 hidden-lg hidden-md hidden-sm">
-            <div class="thumbnail"> <img src="images/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
-                <div class="caption">
-                    <h3>Product</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                    <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row text-center hidden-xs">
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <div class="thumbnail"> <img src="images/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
-                <div class="caption">
-                    <h3>Product</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                    <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <div class="thumbnail"> <img src="images/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
-                <div class="caption">
-                    <h3>Product</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                    <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <div class="thumbnail"> <img src="images/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
-                <div class="caption">
-                    <h3>Product</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                    <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <nav class="text-center">
-        <!-- Add class .pagination-lg for larger blocks or .pagination-sm for smaller blocks-->
-        <ul class="pagination">
-            <li>
-                <a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a>
-            </li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li class="disabled"><a href="#">5</a></li>
-            <li>
-                <a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a>
-            </li>
-        </ul>
-    </nav>
-</div>
-<hr>
-<h2 class="text-center">FEATURED PRODUCTS</h2>
-<hr>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-4 col-md-6">
-            <div class="media-object-default">
-                <div class="media">
-                    <div class="media-left">
-                        <a href="#"> <img class="media-object" src="images/100X125.gif" alt="placeholder image"> </a>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Product</h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, vitae doloremque voluptatum doloribus neque assumenda velit sapiente quas aliquam ratione. Sed possimus corporis dolorum optio eaque in asperiores soluta expedita!
-                    </div>
-                </div>
-                <div class="media">
-                    <div class="media-left">
-                        <a href="#"> <img class="media-object" src="images/100X125.gif" alt="placeholder image"> </a>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Product</h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, quasi doloribus non repellendus quae aperiam. Quos, eligendi itaque soluta ut dignissimos reprehenderit commodi laboriosam quis atque minus enim magnam delectus.</div>
-                </div>
-                <div class="media">
-                    <div class="media-left">
-                        <a href="#"> <img class="media-object" src="images/100X125.gif" alt="placeholder image"></a>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Product</h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, repellendus, ad, adipisci neque earum culpa magnam veritatis ipsum dolores odio laboriosam sed veniam accusamus! Architecto, provident nulla recusandae repellendus
-                        illo!
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr class="hidden-md hidden-lg">
-        <div class="col-lg-4 col-md-6">
-            <div class="media-object-default">
-                <div class="media">
-                    <div class="media-left">
-                        <a href="#"> <img class="media-object" src="images/100X125.gif" alt="placeholder image"></a>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Product</h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, eos, et in quam laboriosam ipsum laudantium laborum provident nihil modi reprehenderit tempora voluptatum quasi non libero quaerat vel. Assumenda, officiis?</div>
-                </div>
-                <div class="media">
-                    <div class="media-left">
-                        <a href="#"> <img class="media-object" src="images/100X125.gif" alt="placeholder image"></a>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Product</h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, minus, praesentium dignissimos non provident et consectetur illo expedita aliquam laboriosam esse incidunt deleniti accusantium debitis voluptas. Non vitae quos
-                        dolorem.
-                    </div>
-                </div>
-                <div class="media">
-                    <div class="media-left">
-                        <a href="#"> <img class="media-object" src="images/100X125.gif" alt="placeholder image"></a>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Product</h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, ducimus quidem aliquam voluptate quas impedit modi neque quasi deleniti dicta. Dolore, provident, unde voluptas dicta fugit odit maxime eius minus!</div>
-                </div>
-            </div>
-        </div>
-        <hr class="hidden-lg">
-        <div class="col-lg-4 col-md-12 hidden-md">
-            <div class="media-object-default">
-                <div class="media">
-                    <div class="media-left">
-                        <a href="#"> <img class="media-object" src="images/100X125.gif" alt="placeholder image"></a>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Media heading 1</h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorum reprehenderit vitae omnis. Quidem, recusandae, magni ut perspiciatis nobis consequuntur ullam molestias molestiae obcaecati ea labore aspernatur modi. Impedit,
-                        fugit!
-                    </div>
-                </div>
-                <div class="media">
-                    <div class="media-left">
-                        <a href="#"> <img class="media-object" src="images/100X125.gif" alt="placeholder image"></a>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Media heading 2</h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, libero, ea itaque atque vero quidem esse optio minus tenetur dolorem delectus nemo fugit deserunt quibusdam veritatis assumenda obcaecati praesentium omnis!</div>
-                </div>
-                <div class="media">
-                    <div class="media-left">
-                        <a href="#"> <img class="media-object" src="images/100X125.gif" alt="placeholder image"></a>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Media heading 2</h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, cumque, ad voluptatibus vel perspiciatis reprehenderit magni in recusandae voluptatum iusto commodi laudantium veritatis esse labore nisi error tempora debitis impedit.</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<hr>
+
 {% endblock %}

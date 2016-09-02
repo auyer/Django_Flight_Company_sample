@@ -1,21 +1,23 @@
-
 <html>
+
 <head>
     <title>Busca</title>
 </head>
-<body>
-   <p>Você buscou por: <strong>{{ query }}</strong></p>
 
-{% if flight %}
+<body>
+    <p>Você buscou por: <strong>{{ query }}</strong></p>
+
+    {% if flight %}
     <p>Encontrado {{ flight|length }} voo{{ flight|pluralize }}.</p>
     <ul>
         {% for flight in voo %}
         <li>{{ flight.id }}</li>
         {% endfor %}
     </ul>
-{% else %}
+    {% else %}
     <p>Não foram encontrados voôs.</p>
-{% endif %}
+    {% endif %}
 </body>
+
 </html>
 go
