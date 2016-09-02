@@ -1,0 +1,64 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+Created on : 01/09/2016, 12:07:57
+Author     : Leandro
+*/
+.login-text{
+    float: left;
+    margin-right: 100px;
+    font-family: "Gotham", sans-serif;
+    color: #636363;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.logon-text{
+    float: right;
+    font-family: "Gotham", sans-serif;
+    color: #636363;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+#cpf, #email, #nome, #nome_user, #senha, #login, #senha_login{
+    color: gray;
+    font-family: verdana;
+    border-radius: 25px;
+    border-color: #92c2ff
+}
+#box-logon{
+    float: left;
+    margin-left: 300px;
+    background-color: white;
+    border-left:10px solid #0099ff;
+}
+#box-login{
+    float: right;
+    margin-right: 250px;
+    background-color: white;
+    border-left:10px solid #0099ff;
+}
+.label{
+    font-family: "Gotham", sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #636363;
+}
+
+.button-action{
+    background-color: #117fca;
+    border: 0;
+    color: #fff;
+    display: inline-block;
+    font-family: "Gotham", sans-serif;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
+    height: 40px;
+    border-radius: 5px;
+    width: 100px;
+    cursor: pointer;
+    display: inline-block;
+}
