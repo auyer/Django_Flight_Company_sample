@@ -33,7 +33,8 @@ def search_form(request):
 def search(request):
     error = False
     if 'q' in request.GET and 'f' in request.GET: #se o request receber o parametro de nome q
-        q = request.GET['q']# entao a variavel q recebe o parametro supracitado f = request.GET['f']
+        q = request.GET['q']# entao a variavel q recebe o parametro supracitado
+        f = request.GET['f']
         if not q or not f:#se o q estiver vazio
             error = True #erro se torna verdadeiro
         else: # se o q nao estiver vazio
