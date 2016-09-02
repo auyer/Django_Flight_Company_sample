@@ -1,8 +1,5 @@
 from django.http import HttpResponse
-<<<<<<< HEAD
 from django.shortcuts import render , get_object_or_404
-=======
->>>>>>> d582ee4422326a87efcc65454cf7cc3b4e24c42d
 from django.shortcuts import render , get_object_or_404, get_list_or_404
 import random
 from django.utils import timezone
@@ -26,19 +23,19 @@ def voo_info(request,pk):
     return render(request, 'website/voo_detail.html', {'flight':flight})
 
 def search_form(request):
-    return render(request, 'website/searchTest.html')#redirecionamento para a página html de busca
+    return render(request, 'website/searchTest.html') #redirecionamento para a pagina html de busca
 
 def search(request):
     error = False 
     if 'q' in request.GET: #se o request receber o parametro de nome q 
-        q = request.GET['q']# então a variável q recebe o parâmetro supracitado
+        q = request.GET['q']# entao a variavel q recebe o parametro supracitado
         if not q:#se o q estiver vazio
             error = True #erro se torna verdadeiro
-        else: # se o q não estiver vazio 
-            flight = voo.objects.filter(id_destino=q) #a variável flight recebe o resultado se o id_destino for igual a q
+        else: # se o q nao estiver vazio 
+            flight = voo.objects.filter(id_destino=q) #a variavel flight recebe o resultado se o id_destino for igual a q
             return render(request, 'website/search_results.html',
-                {'flight': flight, 'query': q})#no caso de não haver um erro a página redireciona para o arquivo html de mostra de resultados levando consigo os parâmetros flight(contem o resultado) e q(entrada da pesquisa)
-    return render(request, 'website/searchTest.html', {'error': error})#no caso de haver um erro redireciona a página atual com o parametro error que é tratado na mesma 
+                {'flight': flight, 'query': q})#no caso de nao haver um erro a pagina redireciona para o arquivo html de mostra de resultados levando consigo os parametros flight(contem o resultado) e q(entrada da pesquisa)
+    return render(request, 'website/searchTest.html', {'error': error})#no caso de haver um erro redireciona a pagina atual com o parametro error que e tratado na mesma 
 
 
 
