@@ -17,6 +17,7 @@ def voo_list(request):
 def voo_info(request,pk):
     flight = get_object_or_404(voo, pk=pk)
     return render(request, 'website/voo_detail.html', {'flight':flight})
+<<<<<<< HEAD
 
 def search_form(request):
     return render(request, 'website/searchTest.html')
@@ -33,3 +34,5 @@ def search(request):
                 {'flight': flight, 'query': q})
     return render(request, 'website/search_results.html', {'error': error})
 
+=======
+>>>>>>> f7afd6b80e081b7582306ed65188431bb5b63361
