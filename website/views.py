@@ -1,5 +1,4 @@
 from django.http import HttpResponse
-from django.shortcuts import render , get_object_or_404
 from django.shortcuts import render , get_object_or_404, get_list_or_404
 import random
 from django.utils import timezone
@@ -26,16 +25,16 @@ def search_form(request):
     return render(request, 'website/searchTest.html') #redirecionamento para a pagina html de busca
 
 def search(request):
-    error = False 
-    if 'q' in request.GET: #se o request receber o parametro de nome q 
+    error = False
+    if 'q' in request.GET: #se o request receber o parametro de nome q
         q = request.GET['q']# entao a variavel q recebe o parametro supracitado
         if not q:#se o q estiver vazio
             error = True #erro se torna verdadeiro
-        else: # se o q nao estiver vazio 
+        else: # se o q nao estiver vazio
             flight = voo.objects.filter(id_destino=q) #a variavel flight recebe o resultado se o id_destino for igual a q
             return render(request, 'website/search_results.html',
                 {'flight': flight, 'query': q})#no caso de nao haver um erro a pagina redireciona para o arquivo html de mostra de resultados levando consigo os parametros flight(contem o resultado) e q(entrada da pesquisa)
-    return render(request, 'website/searchTest.html', {'error': error})#no caso de haver um erro redireciona a pagina atual com o parametro error que e tratado na mesma 
+    return render(request, 'website/searchTest.html', {'error': error})#no caso de haver um erro redireciona a pagina atual com o parametro error que e tratado na mesma
 
 
 
