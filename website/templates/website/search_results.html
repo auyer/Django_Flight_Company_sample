@@ -1,19 +1,24 @@
-<html>
+{% extends 'website/base.html' %}
+{% block title %}resultados{% endblock %}
+{% load staticfiles %}
+{% block content %}
 
-<head>
-    <title>Busca</title>
-</head>
 
-<body>
+<div class="jumbotron">
+  <div class="well">
+  <p>Você buscou por voos de origem: <strong>{{ f }}</strong> e destino <strong>{{ query }}</strong></p>
 
-    <p>Você buscou por: <strong>{{ query }}</strong></p>
+      {% if flight %}
+      <p>Encontrado {{ flight|length }} voo{{ flight|pluralize }}.</p>
+      <ul>
+          {% for flight in flight %}
 
-   <p>Você buscou por voos de origem: <strong>{{ f }}</strong> e destino <strong>{{ query }}</strong></p>
 
-    {% if flight %}
-    <p>Encontrado {{ flight|length }} voo{{ flight|pluralize }}.</p>
-    <ul>
-        {% for flight in flight %}
+          </div>
+</div>
+
+
+
 	<div class="well">
       <br>
       <a href="/flight/{{flight.id}}"><h4>Flight Number: {{ flight.id }}</h4></a>
@@ -31,11 +36,5 @@
     {% else %}
     <p>Não foram encontrados voôs.</p>
     {% endif %}
-</body>
 
-</html>
-<<<<<<< HEAD
-go
-=======
-
->>>>>>> ac46f160bddd278ca9b04f5486a3a163670a346d
+{% endblock %}
