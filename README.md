@@ -1,5 +1,5 @@
-# busao_aereo
-Bom Tutorial de Django: http://tutorial.djangogirls.org/     Bootstrap: http://www.w3schools.com/bootstrap/
+# Django Flight Company Sample
+Based on the Django Girls tutorial: http://tutorial.djangogirls.org/
 
 
 
@@ -8,19 +8,18 @@ Bom Tutorial de Django: http://tutorial.djangogirls.org/     Bootstrap: http://w
 
 Para começar a mecher no Django, precisamos primeiro abrir o ambiente virtual que ele está instalado. É como se fosse uma parte isolada com sua propria instalação de Python e seus componentes. (NÃO É NECESSÁRIO SABER PYTHON!!!)
 
-pelo terminal ( Unix ), para ativar o Python Virtual Environment na pasta inicial do projeto, digite:
+To start the python VirtualEnv, run:
 
 ```
 source busaoAereoVenv/bin/activate
 ```
-
-Para rodar o servidor, digite:
+To run the server:
 ```
 python manage.py runserver
 ```
 
-com o servidor rodando, entre em http://127.0.0.1:8000/admin/ para acessar a pagina de login de administração do site.
+Open the page http://localhost:8000/admin/ to open the administration page.
 ```
-Usuario: djadm
-Senha: busaoaereoadm
+User: djadm
+Password: busaoaereoadm
 ```
