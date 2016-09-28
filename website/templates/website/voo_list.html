@@ -11,13 +11,6 @@
         <h3>Date: {{ flight.data_decolagem }}</h3>
         <a href="/flight/{{flight.id}}"><h4>Flight Number: {{ flight.id }}</h4></a>
         <h3>Company: {{flight.id_com_aerea.name}}</h3>
-
-
-        <!--
-        <p>Departure: {{ flight.data_decolagem }}</p>
-        <p>Arrival: {{ flight.data_pouso }}</p>
-        <p>Price: P${{ flight.preco }}</p>
-      -->
     </div>
     {% endfor %}
 
