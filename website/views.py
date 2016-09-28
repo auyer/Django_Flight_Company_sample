@@ -20,7 +20,7 @@ def promo(request):
     return render(request, 'website/promo.html')
 
 def voo_list(request):
-    flight = voo.objects.order_by('data_decolagem')
+    flight = voo.objects.order_by('id_origem')
     return render(request, 'website/voo_list.html', {'flight':flight})
 
 def voo_info(request,pk):
