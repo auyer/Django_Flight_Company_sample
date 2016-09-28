@@ -1,17 +1,25 @@
 {% extends 'website/base.html' %} {% block title %}{{ page.title }}{% endblock %} {% block content %}
-<div class=" jumbotron">
+
+
+<div class="jumbotron row">
 
 
     {% for flight in flight %}
-    <div class="well">
+    <div class="well col-md-offset-1 col-md-4 col-md-offset-1">
         <br>
+        <h2>Flight From {{ flight.id_origem.name }} To {{ flight.id_destino.name }}</h2>
+        <h3>Date: {{ flight.data_decolagem }}</h3>
         <a href="/flight/{{flight.id}}"><h4>Flight Number: {{ flight.id }}</h4></a>
         <h3>Company: {{flight.id_com_aerea.name}}</h3>
-        <p>Flight From {{ flight.id_origem.name }} To {{ flight.id_destino.name }}</p>
+
+
+        <!--
         <p>Departure: {{ flight.data_decolagem }}</p>
         <p>Arrival: {{ flight.data_pouso }}</p>
         <p>Price: P${{ flight.preco }}</p>
+      -->
     </div>
     {% endfor %}
+
 </div>
 {% endblock %}
