@@ -8,10 +8,10 @@ from django.db.models import Q
 # Create your views here.
 
 def home(request):
-    #return render(request, 'website/index.html', {})
     random_idx = random.randint(0, voo.objects.count() - 1)
     flight = voo.objects.all()[random_idx]
-    return render(request, 'website/index.html', {'flight':flight})
+    city = cidade.objects.all()
+    return render(request, 'website/index.html', {'city':city}, {'flight':flight})
 
 def login(request):
     return render(request, 'website/cadastro.html')
