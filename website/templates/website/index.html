@@ -10,12 +10,17 @@
                 <div class="col-md-6  ">
                     <label for="Origem" class="control-label text-center">&nbsp;Origem: </label>
                     <select name="f">
+                     {% for city in cidade %}
+                        <option value="{{city.id}}">{{city.name}}</option>
+                     {% endfor %}
+                        <!--
                       <option value="MTP">Metropolis</option>
                       <option value="LVT">Lavander Town</option>
                       <option value="ISS">International Space Station</option>
                       <option value="GTH">Gothan City</option>
                       <option value="BSB">Brasilia</option>
                       <option value="ATL">Atlantis</option>
+-->
                     </select>
                 </div>
                 <div class=" col-md-6 ">
