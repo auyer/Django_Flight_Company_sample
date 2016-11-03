@@ -11,7 +11,11 @@ def home(request):
     random_idx = random.randint(0, voo.objects.count() - 1)
     flight = voo.objects.all()[random_idx]
     city = cidade.objects.all()
-    return render(request, 'website/index.html', {'city':city}, {'flight':flight})
+    data = {
+        'city':city,
+        'flight':flight
+    }
+    return render(request, 'website/index.html', data)
 
 def login(request):
     return render(request, 'website/cadastro.html')
