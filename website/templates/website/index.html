@@ -11,10 +11,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>INDEX | </title>
+        <title>Página inicial - Busão Aéreo</title>
 
         <!-- Bootstrap -->
-        <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
         <!-- Font Awesome -->
         <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <!-- NProgress -->
@@ -28,27 +29,31 @@
     <body>
         <div class=" jumbotron row">
             <div class=" col-md-offset-1 well col-md-4 col-xs-12">
-                <h4 class="text-center">CONSULTA DE PASSAGENS</h4>
+                <div class="page-title">
+                    <div class="title_left">
+                        <h4 class="text-center">CONSULTA DE PASSAGENS</h4>
+                    </div>
+                </div>
+                
                 <form class=" form-horizontal" method="get" action="../sresults/">
                     <div class=" well row form-horizontal">
                         <div class="col-md-6  ">
-                            <label for="Origem" class="control-label text-center">&nbsp;Origem: </label>
-                            <select name="f">
+                            <label for="Origem" class="control-label text-center">&nbsp;Origem </label>
+                            <select name="f" class="select2_single form-control">
                                 {% for city in city %}
                                 <option value="{{ city.id }}">{{ city.name }}</option>
                                 {% endfor %}
                             </select>
                         </div>
                         <div class=" col-md-6 ">
-                            <label for="Destino" class="control-label text-center">&nbsp;Destino: </label>
-                            <select name="q">
+                            <label for="Destino" class="control-label text-center">&nbsp;Destino </label>
+                            <select name="q" class="select2_single form-control">
                                 {% for city in city %}
                                 <option value="{{ city.id }}">{{ city.name }}</option>
                                 {% endfor %}
                             </select>
                         </div>
-                    </div>
-                    <div class=" well form-group">
+                    
                         <div class=" col-md-6">
                             <label for="ida" class="control-label ">&nbsp;Ida: </label><br>
                             <input type="date" name="ida">
@@ -58,15 +63,15 @@
                             <input type="date" name="chegada">
                         </div>
                     </div>
+                    <hr>
                     <div class="row">
                         <div class=" col-md-offset-4 col-sm-2"><button class="btn btn-warning"><input type="submit" class="hide" name="clear" "/><a href="#"  class=" btn-warning" role="button">Cancelar </a></button></div>
                         <div class=" col-sm-2"><button class="btn btn-success"><input type="submit" class="hide" name="send" value="search/><a href="#"  class=" btn-success" role="button">Enviar </a></button></div>
                     </div>
-
                 </form>
             </div>
             <div class="well  col-md-offset-1 col-md-4 col-xs-12">
-                <h4 class="text-center">PROMOÃ‡Ã•ES</h4>
+                <h4 class="text-center">PROMOÇÕES</h4>
                 <div class="w3-content w3-display-container" style="max-width:300px">
                     <img class="mySlides" src="{% static 'images/promo1.jpg' %}" style="width:100%">
                     <img class="mySlides" src="{% static 'images/promo2.png' %}" style="width:100%">
@@ -81,6 +86,11 @@
                 </div>
 
                 <script>
+                    $(".select2_single").select2({
+                       allowClear: true,
+                       width: '100%'
+                    });
+                    
                     var slideIndex = 1;
                     showDivs(slideIndex);
 
