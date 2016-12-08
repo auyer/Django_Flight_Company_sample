@@ -4,7 +4,6 @@
 {% block content %}
 
 <html lang="en">
-    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- Meta, title, CSS, favicons, etc. -->
@@ -12,20 +11,19 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Página inicial - Busão Aéreo</title>
+        <title>Página de Cadastro </title>
 
         <!-- Bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <link href="../../static/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <!-- Font Awesome -->
-        <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../static/gentelella/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <!-- NProgress -->
-        <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+        <link href="../../static/gentelella/vendors/nprogress/nprogress.css" rel="stylesheet">
         <!-- Animate.css -->
-        <link href="../vendors/animate.css/animate.min.css" rel="stylesheet">
+        <link href="../../static/gentelella/vendors/animate.css/animate.min.css" rel="stylesheet">
 
         <!-- Custom Theme Style -->
-        <link href="../build/css/custom.min.css" rel="stylesheet">
+        <link href="../../static/gentelella/build/css/custom.min.css" rel="stylesheet">
     </head>
     <body>
         <div class=" jumbotron row">
@@ -35,7 +33,7 @@
                         <h4 class="text-center">CONSULTA DE PASSAGENS</h4>
                     </div>
                 </div>
-                
+
                 <form class=" form-horizontal" method="get" action="../sresults/">
                     <div class=" well row form-horizontal">
                         <div class="col-md-6  ">
@@ -54,7 +52,7 @@
                                 {% endfor %}
                             </select>
                         </div>
-                    
+
                         <div class=" col-md-6">
                             <label for="ida" class="control-label ">&nbsp;Ida: </label><br>
                             <input type="date" name="ida">
@@ -88,10 +86,10 @@
 
                 <script>
                     $(".select2_single").select2({
-                       allowClear: true,
-                       width: '100%'
+                        allowClear: true,
+                        width: '100%'
                     });
-                    
+
                     var slideIndex = 1;
                     showDivs(slideIndex);
 
