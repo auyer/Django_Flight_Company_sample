@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelavent variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/Auyer/Documents/WebSites/busaoAereo/busaoAereoVenv"
+VIRTUAL_ENV="/Users/Auyer/Documents/WebSites/Django_Flight_Company_sample/busaoAereoVenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

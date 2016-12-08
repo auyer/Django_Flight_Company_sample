@@ -1,4 +1,4 @@
-#!/Users/Auyer/Documents/WebSites/busaoAereo/busaoAereoVenv/bin/python3
+#!/Users/Auyer/Documents/WebSites/Django_Flight_Company_sample/busaoAereoVenv/bin/python3
 from django.core import management
 
 if __name__ == "__main__":
