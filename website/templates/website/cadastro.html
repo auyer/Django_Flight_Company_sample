@@ -1,32 +1,48 @@
-{% extends 'website/base.html' %}
-{% block title %}HOME{% endblock %}
 {% load staticfiles %}
-{% block content %}
-
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Página de Cadastro </title>
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap -->
-    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- Animate.css -->
-    <link href="../vendors/animate.css/animate.min.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="{% static 'gentelella/build/css/custom.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="{% static 'gentelella/vendors/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <!-- NProgress -->
+  <link href="{% static 'gentelella/vendors/nprogress/nprogress.css' %}" rel="stylesheet">
+  <!-- Animate.css -->
+  <link href="{% static 'gentelella/vendors/animate.css/animate.min.css' %}" rel="stylesheet">
+  <mtw:inputDateConfig />
+</head>
 
-    <!-- Custom Theme Style -->
-    <link href="../build/css/custom.min.css" rel="stylesheet">
-  </head>
+<body>
+  <nav class="navbar navbar-default"  >
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class=" navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <a class="btn btn-danger active navbar-brand" href="/">Busão Aereo</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myInverseNavbar2">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Passagens</a> </li>
+          <li><a href="/flights" class="btn btn-warning">Todos os Voos</a> </li>
+          <li><a href="#">Pacotes</a> </li>
+          <li><a href="#">Carros</a> </li>
+          <li><a href="#">Promocoes</a> </li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li><a href="/login" class="btn btn-success">Minha Pagina | Cadastro</a> </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-  <body class="login">
+
+
+  <div class="login">
     <div>
       <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>
@@ -55,12 +71,8 @@
                 </p>
 
                 <div class="clearfix"></div>
-                <br />
+                <br>
 
-                <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
-                </div>
               </div>
             </form>
           </section>
@@ -69,7 +81,7 @@
         <div id="register" class="animate form registration_form">
           <section class="login_content">
             <form>
-              <h1>Crie sua Conta!<br/> Leva 2 minutos</h1>
+              <h1>Crie sua Conta!<br> Leva 2 minutos</h1>
               <div>
                 <input type="text" class="form-control" placeholder="Nome de usuário" required="" />
               </div>
@@ -91,18 +103,19 @@
                 </p>
 
                 <div class="clearfix"></div>
-                <br />
+                <br>
 
-                <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
-                </div>
               </div>
             </form>
           </section>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+
 </html>
-{% endblock %}
