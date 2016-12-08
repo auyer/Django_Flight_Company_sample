@@ -2,118 +2,136 @@
 {% block title %}HOME{% endblock %}
 {% load staticfiles %}
 {% block content %}
-
-        <div class=" jumbotron row">
-            <div class=" col-md-offset-1 well col-md-4 col-xs-12">
-                <div class="page-title">
-                    <div class="title_left">
-                        <h4 class="text-center">CONSULTA DE PASSAGENS</h4>
-                    </div>
-                </div>
-
-                <form class=" form-horizontal" method="get" action="../sresults/">
-                    <div class=" well row form-horizontal">
-                        <div class="col-md-6  ">
-                            <label for="Origem" class="control-label text-center">&nbsp;Origem </label>
-                            <select name="f" class="select2_single form-control">
-                                {% for city in city %}
-                                <option value="{{ city.id }}">{{ city.name }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class=" col-md-6 ">
-                            <label for="Destino" class="control-label text-center">&nbsp;Destino </label>
-                            <select name="q" class="select2_single form-control">
-                                {% for city in city %}
-                                <option value="{{ city.id }}">{{ city.name }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-
-                        <div class=" col-md-6">
-                            <label for="ida" class="control-label ">&nbsp;Ida: </label><br>
-                            <input type="date" name="ida">
-                        </div>
-                        <div class=" col-md-6">
-                            <label for="Destino" class="control-label ">&nbsp;Chegada: </label>
-                            <input type="date" name="chegada">
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class=" col-md-offset-4 col-sm-2"><button class="btn btn-warning"><input type="submit" class="hide" name="clear" "/><a href="#"  class=" btn-warning" role="button">Cancelar </a></button></div>
-                        <div class=" col-sm-2"><button class="btn btn-success"><input type="submit" class="hide" name="send" value="search/><a href="#"  class=" btn-success" role="button">Enviar </a></button></div>
-                    </div>
-                </form>
-            </div>
-            <div class="well  col-md-offset-1 col-md-4 col-xs-12">
-                <h4 class="text-center">PROMOÇÕES</h4>
-                <div class="w3-content w3-display-container" style="max-width:300px">
-                    <img class="mySlides" src="{% static 'images/promo1.jpg' %}" style="width:100%">
-                    <img class="mySlides" src="{% static 'images/promo2.png' %}" style="width:100%">
-                    <img class="mySlides" src="{% static 'images/promo3.png' %}" style="width:100%">
-                    <div class="w3-center w3-section w3-large w3-text-white w3-display-bottomleft" style="width:100%">
-                        <div class="w3-left w3-padding-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
-                        <div class="w3-right w3-padding-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
-                        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
-                        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
-                        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
-                    </div>
-                </div>
-
-                <script>
-                    $(".select2_single").select2({
-                        allowClear: true,
-                        width: '100%'
-                    });
-
-                    var slideIndex = 1;
-                    showDivs(slideIndex);
-
-                    function plusDivs(n) {
-                        showDivs(slideIndex += n);
-                    }
-
-                    function currentDiv(n) {
-                        showDivs(slideIndex = n);
-                    }
-
-                    function showDivs(n) {
-                        var i;
-                        var x = document.getElementsByClassName("mySlides");
-                        var dots = document.getElementsByClassName("demo");
-                        if (n > x.length) {
-                            slideIndex = 1
-                        }
-                        if (n < 1) {
-                            slideIndex = x.length
-                        }
-                        for (i = 0; i < x.length; i++) {
-                            x[i].style.display = "none";
-                        }
-                        for (i = 0; i < dots.length; i++) {
-                            dots[i].className = dots[i].className.replace(" w3-white", "");
-                        }
-                        x[slideIndex - 1].style.display = "block";
-                        dots[slideIndex - 1].className += " w3-white";
-                    }
-                </script>
+<div class=" jumbotron row">
+    <div class="well col-xs-12">
+        <h4 class="text-center">PROMOÇÕES</h4>
+        <div class="w3-content w3-display-container" style="max-width:300px">
+            <img class="mySlides" src="{% static 'images/promo1.jpg' %}" style="width:100%">
+            <img class="mySlides" src="{% static 'images/promo2.png' %}" style="width:100%">
+            <img class="mySlides" src="{% static 'images/promo3.png' %}" style="width:100%">
+            <div class="w3-center w3-section w3-large w3-text-white w3-display-bottomleft" style="width:100%">
+                <div class="w3-left w3-padding-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+                <div class="w3-right w3-padding-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+                <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+                <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+                <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
             </div>
         </div>
 
-        <div class="row">
-            <h1 class="text-center">Voos em Destaque</h1>
-            <div class="col-md-4"></div>
-            <a href="/flight/{{flight.id}}">
-                <div class="  col-md-4 well">
-                    <h3> Flight From: {{ flight.id_origem.name }}</h3>
-                    <h3>To {{ flight.id_destino.name }}</h3>
-                    <h4>For only P${{ flight.preco }}</h4>
-                    <p>{{flight.id_com_aerea.name}}</p>
-                    <p>Flight Number: {{ flight.id }}</p>
-                    <p>Departure: {{ flight.data_decolagem }}</p>
-                    <p>Arrival: {{ flight.data_pouso }}</p>
+        <script>
+            $(".select2_single").select2({
+                allowClear: true,
+                width: '100%'
+            });
+
+            var slideIndex = 1;
+            showDivs(slideIndex);
+
+            function plusDivs(n) {
+                showDivs(slideIndex += n);
+            }
+
+            function currentDiv(n) {
+                showDivs(slideIndex = n);
+            }
+
+            function showDivs(n) {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                if (n > x.length) {
+                    slideIndex = 1
+                }
+                if (n < 1) {
+                    slideIndex = x.length
+                }
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" w3-white", "");
+                }
+                x[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " w3-white";
+            }
+        </script>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 well">
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3>Consulta de Passagens <i class="fa fa-calendar"></i></h3>
+                    </div>
+                    <div class="panel-body">
+                        <form class=" form-horizontal" method="get" action="../sresults/">
+                            <div class=" well row form-horizontal">
+                                <div class="col-md-6  ">
+                                    <label for="Origem" class="control-label text-center">&nbsp;Origem </label>
+                                    <select name="f" class="select2_single form-control">
+                                        {% for city in city %}
+                                        <option value="{{ city.id }}">{{ city.name }}</option>
+                                        {% endfor %}
+                                    </select>
+
+                                    <label for="Destino" class="control-label text-center">&nbsp;Destino </label>
+                                    <select name="q" class="select2_single form-control">
+                                        {% for city in city %}
+                                        <option value="{{ city.id }}">{{ city.name }}</option>
+                                        {% endfor %}
+                                    </select>
+
+                                    <label for="ida" class="control-label ">Ida </label><br>
+                                    <input type="date" name="ida" class="form-control">
+
+                                    <label for="Destino" class="control-label ">Chegada </label><br>
+                                    <input type="date" name="chegada" class="form-control">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class=" col-sm-2"><button class="btn btn-success"><input type="submit" class="hide" name="send" value="search/><a href="#"  class=" btn-success" role="button">Pesquisar vôo <i class="fa fa-search"></i> </a></button></div>
+                                <div class=" col-md-offset-4 col-sm-2"><button class="btn btn-default"><input type="submit" class="hide" name="clear" "/><a href="#"  class=" btn-default" role="button">Limpar <i class="fa fa-eraser"></i></a></button></div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </a>
+            </div>
+
+            <!--VOOS EM DESTAQUE-->
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+
+                        <div class="x_panel tile">
+                            <div>
+                                <center><h3>Vôos em destaque <i class="fa fa-plane"></i></h3>
+                                    <h4>Procurando por vôos em promoção? Separamos esta oferta especial para você!</h4></center>
+                            </div>
+                            <hr>
+                            <a href="/flight/{{flight.id}}">
+
+                                <h3>Origem  {{ flight.id_origem.name }}</h3>
+                                <h3>Destino {{ flight.id_destino.name }}</h3>
+
+                                <p>Ida <i class="fa fa-arrow-right"></i> {{ flight.data_decolagem }}</p>
+                                <p>Chegada <i class="fa fa-arrow-left"></i> {{ flight.data_pouso }}</p>
+                                <p>{{flight.id_com_aerea.name}}</p>
+                                <p>Número do vôo {{ flight.id }}</p>
+
+                                <span class="label label-danger" style="font-size: 30px;">
+                                    Preço especial P${{ flight.preco }}
+                                </span>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--FIM VOOS EM DESTAQUE-->
         </div>
+    </div>
+
+</div>
+</div>
+
 {% endblock %}
