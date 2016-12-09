@@ -1,41 +1,7 @@
 {% extends 'website/base.html' %}
 {% load staticfiles %}
 {% block content %}
-<html lang="eng">
-    <head> 
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!-- Meta, title, CSS, favicons, etc. -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Gentellela Alela! | </title>
-
-        <!-- Bootstrap -->
-        <link href="../../static/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Font Awesome -->
-        <link href="../../static/gentelella/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-        <!-- iCheck -->
-        <link href="../../static/gentelella/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-        <!-- bootstrap-wysiwyg -->
-        <link href="../../static/gentelella/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
-        <!-- Select2 -->
-        <link href="../../static/gentelella/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
-        <link href="../../static/gentelella/vendors/select2/dist/css/select2.full.min.css" rel="stylesheet">
-        <!-- Switchery -->
-        <link href="../../static/gentelella/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
-        <!-- starrr -->
-        <link href="../../static/gentelella/vendors/starrr/dist/starrr.css" rel="stylesheet">
-        <!-- bootstrap-progressbar -->
-        <link href="../../static/gentelella/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" 
-              rel="stylesheet">
-        <!-- jVectorMap -->
-        <link href="css/maps/jquery-jvectormap-2.0.3.css" rel="stylesheet"/>
-        <!-- Custom Theme Style -->
-        <link href="../../static/gentelella/build/css/custom.min.css" rel="stylesheet">
-    </head> 
-
-    <body>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 well">
                 <div class="col-md-6">
@@ -178,33 +144,33 @@
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <div class="pricing">
                                         <div class="title">
-                                            <h4>Origem  {{ flight.id_origem.name }}</h4>
-                                            <p><h4>Destino {{ flight.id_destino.name }}</h4><p/>
+                                            <h4>Origem  {{ flight2.id_origem.name }}</h4>
+                                            <p><h4>Destino {{ flight2.id_destino.name }}</h4><p/>
                                         </div>
                                         <div class="x_content">
                                             <div class="">
                                                 <div class="pricing_features">
                                                     <ul class="list-unstyled text-left">
                                                         <li>
-                                                            <strong>Ida <i class="fa fa-arrow-right"></i> {{ flight.data_decolagem }}</strong>
-                                                        </li>
-                                                        <li> 
-                                                           <strong>Chegada <i class="fa fa-arrow-left"></i> {{ flight.data_pouso }}</strong>
+                                                            <strong>Ida <i class="fa fa-arrow-right"></i> {{ flight2.data_decolagem }}</strong>
                                                         </li>
                                                         <li>
-                                                           <strong> {{flight.id_com_aerea.name}}</strong>
+                                                           <strong>Chegada <i class="fa fa-arrow-left"></i> {{ flight2.data_pouso }}</strong>
                                                         </li>
                                                         <li>
-                                                            <strong>Numero do voo {{ flight.id }}</strong>
+                                                           <strong> {{flight2.id_com_aerea.name}}</strong>
                                                         </li>
                                                         <li>
-                                                            <img src="images/download.jpg" height="100" width="200">
+                                                            <strong>Numero do voo {{ flight2.id }}</strong>
+                                                        </li>
+                                                        <li>
+                                                            <img src="{%static 'images/download.jpg' %}" height="100" width="200">
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="pricing_footer">
-                                                <a href="javascript:void(0);" class="btn btn-success btn-block" 
+                                                <a href="javascript:void(0);" class="btn btn-success btn-block"
                                                    role="button">COMPRAR!</a>
                                             </div>
                                         </div>
@@ -221,33 +187,33 @@
                                             </div>
                                         </div>
                                         <div class="title">
-                                            <h4>Origem  {{ flight.id_origem.name }}</h4>
-                                            <p><h4>Destino {{ flight.id_destino.name }}</h4><p/>
+                                            <h4>Origem  {{ flight3.id_origem.name }}</h4>
+                                            <p><h4>Destino {{ flight3.id_destino.name }}</h4><p/>
                                         </div>
                                         <div class="x_content">
                                             <div class="">
                                                 <div class="pricing_features">
                                                     <ul class="list-unstyled text-left">
                                                         <li>
-                                                            <strong>Ida <i class="fa fa-arrow-right"></i> {{ flight.data_decolagem }}</strong>
-                                                        </li>
-                                                        <li> 
-                                                           <strong>Chegada <i class="fa fa-arrow-left"></i> {{ flight.data_pouso }}</strong>
+                                                            <strong>Ida <i class="fa fa-arrow-right"></i> {{ flight3.data_decolagem }}</strong>
                                                         </li>
                                                         <li>
-                                                           <strong> {{flight.id_com_aerea.name}}</strong>
+                                                           <strong>Chegada <i class="fa fa-arrow-left"></i> {{ flight3.data_pouso }}</strong>
                                                         </li>
                                                         <li>
-                                                            <strong>Numero do voo {{ flight.id }}</strong>
+                                                           <strong> {{flight3.id_com_aerea.name}}</strong>
                                                         </li>
                                                         <li>
-                                                            <img src="images/download1.jpg" height="100" width="200">
+                                                            <strong>Numero do voo {{ flight3.id }}</strong>
+                                                        </li>
+                                                        <li>
+                                                            <img src="{% static 'images/download1.jpg' %}" height="100" width="200">
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="pricing_footer">
-                                                <a href="javascript:void(0);" class="btn btn-primary btn-block" 
+                                                <a href="javascript:void(0);" class="btn btn-primary btn-block"
                                                    role="button">COMPRAR! </span></a>
                                             </div>
                                         </div>
@@ -259,33 +225,33 @@
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <div class="pricing">
                                         <div class="title">
-                                            <h4>Origem  {{ flight.id_origem.name }}</h4>
-                                            <p><h4>Destino {{ flight.id_destino.name }}</h4><p/>
+                                            <h4>Origem  {{ flight4.id_origem.name }}</h4>
+                                            <p><h4>Destino {{ flight4.id_destino.name }}</h4><p/>
                                         </div>
                                         <div class="x_content">
                                             <div class="">
                                                 <div class="pricing_features">
                                                     <ul class="list-unstyled text-left">
                                                         <li>
-                                                            <strong>Ida <i class="fa fa-arrow-right"></i> {{ flight.data_decolagem }}</strong>
-                                                        </li>
-                                                        <li> 
-                                                           <strong>Chegada <i class="fa fa-arrow-left"></i> {{ flight.data_pouso }}</strong>
+                                                            <strong>Ida <i class="fa fa-arrow-right"></i> {{ flight4.data_decolagem }}</strong>
                                                         </li>
                                                         <li>
-                                                           <strong> {{flight.id_com_aerea.name}}</strong>
+                                                           <strong>Chegada <i class="fa fa-arrow-left"></i> {{ flight4.data_pouso }}</strong>
                                                         </li>
                                                         <li>
-                                                            <strong>Numero do voo {{ flight.id }}</strong>
+                                                           <strong> {{flight4.id_com_aerea.name}}</strong>
                                                         </li>
                                                         <li>
-                                                            <img src="images/download(1).jpg" height="100" width="200">
+                                                            <strong>Numero do voo {{ flight4.id }}</strong>
+                                                        </li>
+                                                        <li>
+                                                            <img src="{% static 'images/download(1).jpg' %}" height="100" width="200">
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="pricing_footer">
-                                                <a href="javascript:void(0);" class="btn btn-success btn-block" 
+                                                <a href="javascript:void(0);" class="btn btn-success btn-block"
                                                    role="button">COMPRAR!</a>
                                             </div>
                                         </div>
@@ -297,33 +263,33 @@
                                <div class="col-md-3 col-sm-6 col-xs-12">
                                     <div class="pricing">
                                         <div class="title">
-                                            <h4>Origem  {{ flight.id_origem.name }}</h4>
-                                            <p><h4>Destino {{ flight.id_destino.name }}</h4><p/>
+                                            <h4>Origem  {{ flight5.id_origem.name }}</h4>
+                                            <p><h4>Destino {{ flight5.id_destino.name }}</h4><p/>
                                         </div>
                                         <div class="x_content">
                                             <div class="">
                                                 <div class="pricing_features">
                                                     <ul class="list-unstyled text-left">
                                                         <li>
-                                                            <strong>Ida <i class="fa fa-arrow-right"></i> {{ flight.data_decolagem }}</strong>
-                                                        </li>
-                                                        <li> 
-                                                           <strong>Chegada <i class="fa fa-arrow-left"></i> {{ flight.data_pouso }}</strong>
+                                                            <strong>Ida <i class="fa fa-arrow-right"></i> {{ flight5.data_decolagem }}</strong>
                                                         </li>
                                                         <li>
-                                                           <strong> {{flight.id_com_aerea.name}}</strong>
+                                                           <strong>Chegada <i class="fa fa-arrow-left"></i> {{ flight5.data_pouso }}</strong>
                                                         </li>
                                                         <li>
-                                                            <strong>Numero do voo {{ flight.id }}</strong>
+                                                           <strong> {{flight5.id_com_aerea.name}}</strong>
                                                         </li>
                                                         <li>
-                                                            <img src="images/images.jpg" height="100" width="200">
+                                                            <strong>Numero do voo {{ flight5.id }}</strong>
+                                                        </li>
+                                                        <li>
+                                                            <img src="{% static 'images/images.jpg' %}" height="100" width="200">
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="pricing_footer">
-                                                <a href="javascript:void(0);" class="btn btn-success btn-block" 
+                                                <a href="javascript:void(0);" class="btn btn-success btn-block"
                                                    role="button">COMPRAR!</a>
                                             </div>
                                         </div>
@@ -338,13 +304,7 @@
         </div>
     </div>
     <!-- footer content -->
-    <footer>
-        <div class="pull-left">
-            <strong>Busão Aéreo<i class="fa fa-registered"></i> 2016</strong>
-            <p><label>Procure-nos nas redes sociais </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-facebook"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-instagram"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-twitter"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-pinterest"></i>
-        </div>
-        <div class="clearfix"></div>
-    </footer>
+
     <!-- /footer content -->
     <script>
         $(".select2_single").select2({
@@ -352,6 +312,4 @@
             width: '100%'
         });
     </script>
-</body>
-</html>
 {% endblock %}
