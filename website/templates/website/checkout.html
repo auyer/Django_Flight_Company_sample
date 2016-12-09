@@ -1,0 +1,136 @@
+{% extends 'website/base.html' %} {% block title %}{{ page.title }}{% endblock %}
+{% load staticfiles %}
+{% block content %}
+
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+                  <div class="x_title">
+
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <section class="content invoice">
+                      <!-- title row -->
+                      <div class="row">
+                        <div class="col-xs-12 invoice-header">
+                          <h1>
+                                          <i class="fa fa-globe"></i> Pagamento.
+                                          <small class="pull-right">Date: 09/11/2016</small>
+                                      </h1>
+                        </div>
+                        <!-- /.col -->
+                      </div>
+                      <!-- info row -->
+                      <div class="row invoice-info">
+                        <div class="col-sm-4 invoice-col">
+                          De
+                          <address>
+                                          <strong>Busão Aéreo, Inc.</strong>
+                                          <br>St. M Norte QNM 40
+                                          <br>Setor M-Norte
+                                          <br>Phone:(55) 61 45123-9876
+
+                                      </address>
+                        </div>
+                        <!-- /.col -->
+
+                        <!-- /.col -->
+                        <div class="col-sm-4 invoice-col">
+                          <b>Order ID:</b> {{orderid}}
+                          <br>
+                          <br>
+                          <b>Válido até:</b> 05/02/2017
+                          <br>
+                        </div>
+                        <!-- /.col -->
+                      </div>
+                      <!-- /.row -->
+
+                      <!-- Table row -->
+                      <div class="row">
+                        <div class="col-xs-12 table">
+                          <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th>Qtd</th>
+                                <th>Produto</th>
+                                <th>Número</th>
+                                <th style="width: 59%">Descrição</th>
+                                <th>Subtotal</th>
+                              </tr>
+                            </thead>
+
+
+                            <tbody>
+                              <tr>
+                                <td>1</td>
+                                <td>Passagem aérea</td>
+                                <td>{{flight.id}}</td>
+                                <td>{{flight.id_origem.name}} --> {{flight.id_destino.name}}
+                                </td>
+                                <td>P${{flight.preco}}</td>
+                              </tr>
+
+                            </tbody>
+
+                          </table>
+                        </div>
+                        <!-- /.col -->
+                      </div>
+                      <!-- /.row -->
+
+                      <div class="row">
+                        <!-- accepted payments column -->
+                        <div class="col-xs-6">
+                          <p class="lead">Métodos de pagamento:</p>
+                          <img src="{% static 'images/visa.png' %}" alt="Visa">
+                          <img src="{% static 'images/mastercard.png' %}" alt="Mastercard">
+                          <img src="{% static 'images/american-express.png' %}" alt="American Express">
+                          <img src="{% static 'images/paypal.png' %}" alt="Paypal">
+                          <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+                            Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
+                          </p>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-xs-6">
+                          <p class="lead">Válido Até: 05/02/2017</p>
+                          <div class="table-responsive">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <th style="width:50%">Subtotal:</th>
+                                  <td>P${{flight.preco}}</td>
+                                </tr>
+                                <tr>
+                                  <th>Total:</th>
+                                  <td>P${{flight.preco}}</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <!-- /.col -->
+                      </div>
+                      <!-- /.row -->
+
+                      <!-- this row will not appear when printing -->
+                      <div class="row no-print">
+                        <div class="col-xs-12">
+                          <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Imprimir</button>
+                          <button class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Prosseguir com pagamento</button>
+                          <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="fa fa-download"></i> Gerar PDF</button>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+{% endblock %}
