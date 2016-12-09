@@ -75,3 +75,8 @@ def get_closest_to(self, target):
         return closest_less
     else:
         return closest_greater
+
+def order_number(request,pk):
+    flight = get_object_or_404(voo, pk=pk)
+    orderid = random.randrange(1, 99999)
+    return render(request,'website/checkout.html',{'orderid':orderid, 'flight':flight})
