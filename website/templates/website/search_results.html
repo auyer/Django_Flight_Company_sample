@@ -4,34 +4,62 @@
 {% block content %}
 
 
-<div class="jumbotron">
-  <div class="well">
-  <p>Você buscou por voos de origem: <strong>{{ f }}</strong> e destino <strong>{{ query }}</strong></p>
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2 align="center">Você buscou por voos de origem: <strong>{{ f }}</strong> e destino <strong>{{ query }}</strong></h2>
+
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="x_content">
+
 
       {% if flight %}
       <p>Encontrado {{ flight|length }} voo{{ flight|pluralize }}.</p>
-      <ul>
+      <div class="table-responsive">
+        <table class="table table-striped jambo_table bulk_action">
+          <thead>
+            <tr class="headings">
+
+              <th class="column-title">Nº do Vôo </th>
+              <th class="column-title">Data da Partida </th>
+              <th class="column-title">Data da Chegada  </th>
+              <th class="column-title">Cidade Origem </th>
+              <th class="column-title">Cidade Destino </th>
+              <th class="column-title">Preço </th>
+              <th class="column-title no-link last"><span class="nobr"></span>
+              </th>
+              <th class="bulk-actions" colspan="7">
+                <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+              </th>
+            </tr>
+          </thead>
+
           {% for flight in flight %}
 
 
-          </div>
-</div>
+          <tbody>
 
 
+            <tr class="even pointer">
+              <td class=" "><a href="../flight/{{flight.id}}">{{ flight.id }}</a></td>
+              <td class=" ">{{ flight.data_decolagem }} </td>
+              <td class=" ">{{ flight.data_pouso }}</td>
+              <td class=" ">{{ flight.id_origem.name }}</td>
+              <td class=" ">{{ flight.id_destino.name }}</td>
+              <td class="a-right a-right ">P${{ flight.preco }}</td>
+              <td class=" last"><a href="#">Comprar</a>
+              </td>
+            </tr>
+            {% endfor %}
 
-	<div class="well">
-      <br>
-      <a href="/flight/{{flight.id}}"><h4>Flight Number: {{ flight.id }}</h4></a>
-        <h3>Company: {{flight.id_com_aerea.name}}</h3>
-        <p>Flight From {{ flight.id_origem.name }} To {{ flight.id_destino.name }}</p>
-        <p>Departure: {{ flight.data_decolagem }}</p>
-        <p>Arrival: {{ flight.data_pouso }}</p>
-        <p>Price: P${{ flight.preco }}</p>
+          </tbody>
+        </table>
+      </div>
     </div>
-
-
-       <!-- <li>{{ flight.id }}</li>-->
-        {% endfor %}
+  </div>
+</div>
     </ul>
     {% else %}
     <p>Não foram encontrados voôs.</p>

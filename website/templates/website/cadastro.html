@@ -1,12 +1,35 @@
 {% load staticfiles %}
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="{% static 'gentelella/build/css/custom.min.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="{% static 'gentelella/vendors/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'gentelella/vendors/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'gentelella/vendors/nprogress/nprogress.css' %}" rel="stylesheet">
+
+        <link href="{% static 'gentelella/vendors/animate.css/animate.min.css' %}" rel="stylesheet">
+
+
+        <link href="{% static 'static/gentelella/build/css/custom.min.css' %}" rel="stylesheet">
+    <mtw:inputDateConfig />
+    </head>
+    <!--
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<<<<<<< HEAD
 
     <!-- Bootstrap -->
     <link href="{% static 'gentelella/build/css/custom.min.css' %}" rel="stylesheet">
@@ -23,7 +46,7 @@
     <link href="{% static 'static/gentelella/build/css/custom.min.css' %}" rel="stylesheet">
 <mtw:inputDateConfig />
 </head>
-<body>
+<body class="login">
   <nav class="navbar navbar-default"  >
     <div class="container-fluid">
       <div class="">
@@ -76,51 +99,57 @@
                                 </p>
 
                                 <div class="clearfix"></div>
-                                <br>
 
-                            </div>
-                        </form>
-                    </section>
-                </div>
+                                <div class="separator">
+                                    <p class="change_link">Novo no site?
+                                        <a href="#signup" class="to_register"> Crie uma conta </a>
+                                    </p>
 
-                <div id="register" class="animate form registration_form">
-                    <section class="login_content">
-                        <form>
-                            <h1>Crie sua Conta!<br> Leva 2 minutos</h1>
-                            <div>
-                                <input type="text" class="form-control" placeholder="Nome de usuário" required="" />
-                            </div>
-                            <div>
-                                <input type="email" class="form-control" placeholder="Email" required="" />
-                            </div>
-                            <div>
-                                <input type="password" class="form-control" placeholder="Senha" required="" />
-                            </div>
-                            <div>
-                                <a class="btn btn-default submit" href="index.html">Enviar</a>
-                            </div>
+                                    <div class="clearfix"></div>
+                                    <br>
 
-                            <div class="clearfix"></div>
+                                </div>
+                            </form>
+                        </section>
+                    </div>
 
-                            <div class="separator">
-                                <p class="change_link">Já possui uma conta ?
-                                    <a href="#signin" class="to_register"> Entrar </a>
-                                </p>
+                    <div id="register" class="animate form registration_form">
+                        <section class="login_content">
+                            <form>
+                                <h1>Crie sua Conta!<br> Leva 2 minutos</h1>
+                                <div>
+                                    <input type="text" class="form-control" placeholder="Nome de usuário" required="" />
+                                </div>
+                                <div>
+                                    <input type="email" class="form-control" placeholder="Email" required="" />
+                                </div>
+                                <div>
+                                    <input type="password" class="form-control" placeholder="Senha" required="" />
+                                </div>
+                                <div>
+                                    <a class="btn btn-default submit" href="index.html">Enviar</a>
+                                </div>
 
                                 <div class="clearfix"></div>
-                                <br>
 
-                            </div>
-                        </form>
-                    </section>
+                                <div class="separator">
+                                    <p class="change_link">Já possui uma conta ?
+                                        <a href="#signin" class="to_register"> Entrar </a>
+                                    </p>
+
+                                    <div class="clearfix"></div>
+                                    <br>
+
+                                </div>
+                            </form>
+                        </section>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-</body>
-
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </body>
 </html>

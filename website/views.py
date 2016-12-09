@@ -10,10 +10,23 @@ from django.db.models import Q
 def home(request):
     random_idx = random.randint(0, voo.objects.count() - 1)
     flight = voo.objects.all()[random_idx]
+
+    random_idx = random.randint(0, voo.objects.count() - 1)
+    flight2 = voo.objects.all()[random_idx]
+    random_idx = random.randint(0, voo.objects.count() - 1)
+    flight3 = voo.objects.all()[random_idx]
+    random_idx = random.randint(0, voo.objects.count() - 1)
+    flight4 = voo.objects.all()[random_idx]
+    random_idx = random.randint(0, voo.objects.count() - 1)
+    flight5 = voo.objects.all()[random_idx]
     city = cidade.objects.all()
     data = {
         'city':city,
-        'flight':flight
+        'flight':flight,
+        'flight2':flight2,
+        'flight3':flight3,
+        'flight4':flight4,
+        'flight5':flight5
     }
     return render(request, 'website/index.html', data)
 
@@ -75,3 +88,8 @@ def get_closest_to(self, target):
         return closest_less
     else:
         return closest_greater
+
+def order_number(request,pk):
+    flight = get_object_or_404(voo, pk=pk)
+    orderid = random.randrange(1, 99999)
+    return render(request,'website/checkout.html',{'orderid':orderid, 'flight':flight})

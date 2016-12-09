@@ -1,103 +1,315 @@
 {% extends 'website/base.html' %}
-{% block title %}HOME{% endblock %}
 {% load staticfiles %}
 {% block content %}
 
-<div class=" jumbotron row">
-  <div class=" col-md-offset-1 well col-md-4 col-xs-12">
-    <div class="page-title">
-      <div class="title_left">
-        <h4 class="text-center">CONSULTA DE PASSAGENS</h4>
-      </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 well">
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3>Consulta de Passagens <i class="fa fa-calendar"></i></h3>
+                        </div>
+                        <div class="panel-body">
+                            <form class=" form-horizontal" method="get" action="../sresults/">
+                                <div class=" well row form-horizontal">
+                                    <div class="col-md-6  ">
+                                        <label for="Origem" class="control-label text-center">&nbsp;Origem </label>
+                                        <select name="f" class="select2_single form-control">
+                                            <option value="">---Selecione a Origem---</option>
+                                            {% for city in city %}
+                                            <option value="{{ city.id }}">{{ city.name }}</option>
+                                            {% endfor %}
+                                        </select>
+
+                                        <label for="Destino" class="control-label text-center">&nbsp;Destino </label>
+                                        <select name="q" class="select2_single form-control">
+                                            <option value="">---Selecione o Destino---</option>
+                                            {% for city in city %}
+                                            <option value="{{ city.id }}">{{ city.name }}</option>
+                                            {% endfor %}
+                                        </select>
+
+                                        <label for="ida" class="control-label ">Ida </label><br>
+                                        <input type="date" name="ida" class="form-control">
+
+                                        <label for="Destino" class="control-label ">Chegada </label><br>
+                                        <input type="date" name="chegada" class="form-control">
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class=" col-md-offset-4 col-sm-2"><button class="btn btn-default"><input type="submit" class="hide" name="clear" /><a href="#"  class=" btn-default" role="button">Limpar <i class="fa fa-eraser"></i></a></button></div>
+                                    <div class=" col-sm-2"><button class="btn btn-success"><input type="submit" class="hide" name="send" value="search/"><a href="#"  class=" btn-success" role="button">Pesquisar voo <i class="fa fa-search"></i> </a></button></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!--VOOS EM DESTAQUE-->
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+
+                            <div class="x_panel tile">
+                                <div>
+                                    <center><h3><b>Voos em destaque <i class="fa fa-plane"></i></b></h3>
+                                        <h4>Procurando por voos em promocao? Separamos esta oferta especial para voce!</h4></center>
+                                </div>
+                                <hr>
+                                <a href="/flight/{{flight.id}}">
+
+                                    <h3>Origem  {{ flight.id_origem.name }}</h3>
+                                    <h3>Destino {{ flight.id_destino.name }}</h3>
+
+                                    <p>Ida <i class="fa fa-arrow-right"></i> {{ flight.data_decolagem }}</p>
+                                    <p>Chegada <i class="fa fa-arrow-left"></i> {{ flight.data_pouso }}</p>
+                                    <p>{{flight.id_com_aerea.name}}</p>
+                                    <p>Numero do voo {{ flight.id }}</p>
+
+                                    <span class="label label-danger" style="font-size: 30px;">
+                                        Preco especial P${{ flight.preco }}
+                                    </span>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-sm-2"><button class="btn btn-success"><input type="submit" class="hide" name="clear" /><a href="#"  class=" btn-success" role="button">Comprar! <i class="fa fa-cart"></i></a></button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--FIM VOOS EM DESTAQUE-->
+                </div>
+            </div>
+
+        </div>
+        <div class=" row">
+
+            <div class="well  col-md-offset-4 col-md-4 col-xs-12">
+                <h4 class="text-center">PROMOCOES</h4>
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active text-center">
+                            <img class=" img-responsive" src="{% static 'images/promo1.jpg' %}" alt="Promo1">
+                        </div>
+
+                        <div class="item">
+                            <img class=" img-responsive" src="{% static 'images/promo2.png' %}" alt="Promo2">
+                        </div>
+
+                        <div class="item">
+                            <img class=" img-responsive" src="{% static 'images/promo3.png' %}" alt="promo3">
+                        </div>
+
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel" style="height:600px;">
+                    <div class="x_title">
+                        <h2>Mais ofertas para você!</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <!-- price element -->
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <div class="pricing">
+                                        <div class="title">
+                                            <h4>Origem  {{ flight2.id_origem.name }}</h4>
+                                            <p><h4>Destino {{ flight2.id_destino.name }}</h4><p/>
+                                        </div>
+                                        <div class="x_content">
+                                            <div class="">
+                                                <div class="pricing_features">
+                                                    <ul class="list-unstyled text-left">
+                                                        <li>
+                                                            <strong>Ida <i class="fa fa-arrow-right"></i> {{ flight2.data_decolagem }}</strong>
+                                                        </li>
+                                                        <li>
+                                                           <strong>Chegada <i class="fa fa-arrow-left"></i> {{ flight2.data_pouso }}</strong>
+                                                        </li>
+                                                        <li>
+                                                           <strong> {{flight2.id_com_aerea.name}}</strong>
+                                                        </li>
+                                                        <li>
+                                                            <strong>Numero do voo {{ flight2.id }}</strong>
+                                                        </li>
+                                                        <li>
+                                                            <img src="{%static 'images/download.jpg' %}" height="100" width="200">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="pricing_footer">
+                                                <a href="javascript:void(0);" class="btn btn-success btn-block"
+                                                   role="button">COMPRAR!</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- price element -->
+
+                                <!-- price element -->
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <div class="pricing ui-ribbon-container">
+                                        <div class="ui-ribbon-wrapper">
+                                            <div class="ui-ribbon">
+                                                30% Off <i class="fa fa-tags"></i>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <h4>Origem  {{ flight3.id_origem.name }}</h4>
+                                            <p><h4>Destino {{ flight3.id_destino.name }}</h4><p/>
+                                        </div>
+                                        <div class="x_content">
+                                            <div class="">
+                                                <div class="pricing_features">
+                                                    <ul class="list-unstyled text-left">
+                                                        <li>
+                                                            <strong>Ida <i class="fa fa-arrow-right"></i> {{ flight3.data_decolagem }}</strong>
+                                                        </li>
+                                                        <li>
+                                                           <strong>Chegada <i class="fa fa-arrow-left"></i> {{ flight3.data_pouso }}</strong>
+                                                        </li>
+                                                        <li>
+                                                           <strong> {{flight3.id_com_aerea.name}}</strong>
+                                                        </li>
+                                                        <li>
+                                                            <strong>Numero do voo {{ flight3.id }}</strong>
+                                                        </li>
+                                                        <li>
+                                                            <img src="{% static 'images/download1.jpg' %}" height="100" width="200">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="pricing_footer">
+                                                <a href="javascript:void(0);" class="btn btn-primary btn-block"
+                                                   role="button">COMPRAR! </span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- price element -->
+
+                                <!-- price element -->
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <div class="pricing">
+                                        <div class="title">
+                                            <h4>Origem  {{ flight4.id_origem.name }}</h4>
+                                            <p><h4>Destino {{ flight4.id_destino.name }}</h4><p/>
+                                        </div>
+                                        <div class="x_content">
+                                            <div class="">
+                                                <div class="pricing_features">
+                                                    <ul class="list-unstyled text-left">
+                                                        <li>
+                                                            <strong>Ida <i class="fa fa-arrow-right"></i> {{ flight4.data_decolagem }}</strong>
+                                                        </li>
+                                                        <li>
+                                                           <strong>Chegada <i class="fa fa-arrow-left"></i> {{ flight4.data_pouso }}</strong>
+                                                        </li>
+                                                        <li>
+                                                           <strong> {{flight4.id_com_aerea.name}}</strong>
+                                                        </li>
+                                                        <li>
+                                                            <strong>Numero do voo {{ flight4.id }}</strong>
+                                                        </li>
+                                                        <li>
+                                                            <img src="{% static 'images/download(1).jpg' %}" height="100" width="200">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="pricing_footer">
+                                                <a href="javascript:void(0);" class="btn btn-success btn-block"
+                                                   role="button">COMPRAR!</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- price element -->
+
+                                <!-- price element -->
+                               <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <div class="pricing">
+                                        <div class="title">
+                                            <h4>Origem  {{ flight5.id_origem.name }}</h4>
+                                            <p><h4>Destino {{ flight5.id_destino.name }}</h4><p/>
+                                        </div>
+                                        <div class="x_content">
+                                            <div class="">
+                                                <div class="pricing_features">
+                                                    <ul class="list-unstyled text-left">
+                                                        <li>
+                                                            <strong>Ida <i class="fa fa-arrow-right"></i> {{ flight5.data_decolagem }}</strong>
+                                                        </li>
+                                                        <li>
+                                                           <strong>Chegada <i class="fa fa-arrow-left"></i> {{ flight5.data_pouso }}</strong>
+                                                        </li>
+                                                        <li>
+                                                           <strong> {{flight5.id_com_aerea.name}}</strong>
+                                                        </li>
+                                                        <li>
+                                                            <strong>Numero do voo {{ flight5.id }}</strong>
+                                                        </li>
+                                                        <li>
+                                                            <img src="{% static 'images/images.jpg' %}" height="100" width="200">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="pricing_footer">
+                                                <a href="javascript:void(0);" class="btn btn-success btn-block"
+                                                   role="button">COMPRAR!</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- price element -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <!-- footer content -->
 
-    <form class=" form-horizontal" method="get" action="../sresults/">
-      <div class=" well row form-horizontal">
-        <div class="col-md-6  ">
-          <label for="Origem" class="control-label text-center">&nbsp;Origem </label>
-          <select name="f" class="select2_single form-control">
-            {% for city in city %}
-            <option value="{{ city.id }}">{{ city.name }}</option>
-            {% endfor %}
-          </select>
-        </div>
-        <div class=" col-md-6 ">
-          <label for="Destino" class="control-label text-center">&nbsp;Destino </label>
-          <select name="q" class="select2_single form-control">
-            {% for city in city %}
-            <option value="{{ city.id }}">{{ city.name }}</option>
-            {% endfor %}
-          </select>
-        </div>
-
-        <div class=" col-md-6">
-          <label for="ida" class="control-label ">&nbsp;Ida: </label><br>
-          <input type="date" name="ida">
-        </div>
-        <div class=" col-md-6">
-          <label for="Destino" class="control-label ">&nbsp;Chegada: </label>
-          <input type="date" name="chegada">
-        </div>
-      </div>
-      <hr>
-      <div class="row">
-        <div class=" col-md-offset-4 col-sm-2"><button class="btn btn-warning"><input type="submit" class="hide" name="clear" "/><a href="#"  class=" btn-warning" role="button">Cancelar </a></button></div>
-        <div class=" col-sm-2"><button class="btn btn-success"><input type="submit" class="hide" name="send" value="search/><a href="#"  class=" btn-success" role="button">Enviar </a></button></div>
-      </div>
-    </form>
-  </div>
-  <div class="well  col-md-offset-1 col-md-4 col-xs-12">
-    <h4 class="text-center">PROMOÇÕES</h4>
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img src="{% static 'images/promo1.jpg' %}" alt="Chania">
-        </div>
-
-        <div class="item">
-          <img src="{% static 'images/promo2.png' %}" alt="Chania">
-        </div>
-
-        <div class="item">
-          <img src="{% static 'images/promo3.png' %}" alt="Flower">
-        </div>
-
-      </div>
-
-      <!-- Left and right controls -->
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <h1 class="text-center">Voos em Destaque</h1>
-  <div class="col-md-4"></div>
-  <a href="/flight/{{flight.id}}">
-    <div class="  col-md-4 well">
-      <h3> Flight From: {{ flight.id_origem.name }}</h3>
-      <h3>To {{ flight.id_destino.name }}</h3>
-      <h4>For only P${{ flight.preco }}</h4>
-      <p>{{flight.id_com_aerea.name}}</p>
-      <p>Flight Number: {{ flight.id }}</p>
-      <p>Departure: {{ flight.data_decolagem }}</p>
-      <p>Arrival: {{ flight.data_pouso }}</p>
-    </div>
-  </a>
-</div>
+    <!-- /footer content -->
+    <script>
+        $(".select2_single").select2({
+            allowClear: true,
+            width: '100%'
+        });
+    </script>
 {% endblock %}
