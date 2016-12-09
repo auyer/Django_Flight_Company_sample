@@ -1,131 +1,357 @@
 {% extends 'website/base.html' %}
 {% load staticfiles %}
 {% block content %}
+<html lang="eng">
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<div class="row">
-  <div class="col-md-12 col-sm-12 col-xs-12 well">
-    <div class="col-md-6">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3>Consulta de Passagens <i class="fa fa-calendar"></i></h3>
-        </div>
-        <div class="panel-body">
-          <form class=" form-horizontal" method="get" action="../sresults/">
-            <div class=" well row form-horizontal">
-              <div class="col-md-6  ">
-                <label for="Origem" class="control-label text-center">&nbsp;Origem </label>
-                <select name="f" class="select2_single form-control">
-                  <option value="">---Selecione a Origem---</option>
-                  {% for city in city %}
-                  <option value="{{ city.id }}">{{ city.name }}</option>
-                  {% endfor %}
-                </select>
+        <title>Gentellela Alela! | </title>
 
-                <label for="Destino" class="control-label text-center">&nbsp;Destino </label>
-                <select name="q" class="select2_single form-control">
-                  <option value="">---Selecione o Destino---</option>
-                  {% for city in city %}
-                  <option value="{{ city.id }}">{{ city.name }}</option>
-                  {% endfor %}
-                </select>
+        <!-- Bootstrap -->
+        <link href="../../static/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="../../static/gentelella/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <!-- iCheck -->
+        <link href="../../static/gentelella/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+        <!-- bootstrap-wysiwyg -->
+        <link href="../../static/gentelella/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+        <!-- Select2 -->
+        <link href="../../static/gentelella/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+        <link href="../../static/gentelella/vendors/select2/dist/css/select2.full.min.css" rel="stylesheet">
+        <!-- Switchery -->
+        <link href="../../static/gentelella/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+        <!-- starrr -->
+        <link href="../../static/gentelella/vendors/starrr/dist/starrr.css" rel="stylesheet">
+        <!-- bootstrap-progressbar -->
+        <link href="../../static/gentelella/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" 
+              rel="stylesheet">
+        <!-- jVectorMap -->
+        <link href="css/maps/jquery-jvectormap-2.0.3.css" rel="stylesheet"/>
+        <!-- Custom Theme Style -->
+        <link href="../../static/gentelella/build/css/custom.min.css" rel="stylesheet">
+    </head> 
 
-                <label for="ida" class="control-label ">Ida </label><br>
-                <input type="date" name="ida" class="form-control">
+    <body>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 well">
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3>Consulta de Passagens <i class="fa fa-calendar"></i></h3>
+                        </div>
+                        <div class="panel-body">
+                            <form class=" form-horizontal" method="get" action="../sresults/">
+                                <div class=" well row form-horizontal">
+                                    <div class="col-md-6  ">
+                                        <label for="Origem" class="control-label text-center">&nbsp;Origem </label>
+                                        <select name="f" class="select2_single form-control">
+                                            <option value="">---Selecione a Origem---</option>
+                                            {% for city in city %}
+                                            <option value="{{ city.id }}">{{ city.name }}</option>
+                                            {% endfor %}
+                                        </select>
 
-                <label for="Destino" class="control-label ">Chegada </label><br>
-                <input type="date" name="chegada" class="form-control">
-              </div>
+                                        <label for="Destino" class="control-label text-center">&nbsp;Destino </label>
+                                        <select name="q" class="select2_single form-control">
+                                            <option value="">---Selecione o Destino---</option>
+                                            {% for city in city %}
+                                            <option value="{{ city.id }}">{{ city.name }}</option>
+                                            {% endfor %}
+                                        </select>
+
+                                        <label for="ida" class="control-label ">Ida </label><br>
+                                        <input type="date" name="ida" class="form-control">
+
+                                        <label for="Destino" class="control-label ">Chegada </label><br>
+                                        <input type="date" name="chegada" class="form-control">
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class=" col-md-offset-4 col-sm-2"><button class="btn btn-default"><input type="submit" class="hide" name="clear" /><a href="#"  class=" btn-default" role="button">Limpar <i class="fa fa-eraser"></i></a></button></div>
+                                    <div class=" col-sm-2"><button class="btn btn-success"><input type="submit" class="hide" name="send" value="search/"><a href="#"  class=" btn-success" role="button">Pesquisar voo <i class="fa fa-search"></i> </a></button></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!--VOOS EM DESTAQUE-->
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+
+                            <div class="x_panel tile">
+                                <div>
+                                    <center><h3><b>Voos em destaque <i class="fa fa-plane"></i></b></h3>
+                                        <h4>Procurando por voos em promocao? Separamos esta oferta especial para voce!</h4></center>
+                                </div>
+                                <hr>
+                                <a href="/flight/{{flight.id}}">
+
+                                    <h3>Origem  {{ flight.id_origem.name }}</h3>
+                                    <h3>Destino {{ flight.id_destino.name }}</h3>
+
+                                    <p>Ida <i class="fa fa-arrow-right"></i> {{ flight.data_decolagem }}</p>
+                                    <p>Chegada <i class="fa fa-arrow-left"></i> {{ flight.data_pouso }}</p>
+                                    <p>{{flight.id_com_aerea.name}}</p>
+                                    <p>Numero do voo {{ flight.id }}</p>
+
+                                    <span class="label label-danger" style="font-size: 30px;">
+                                        Preco especial P${{ flight.preco }}
+                                    </span>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-sm-2"><button class="btn btn-success"><input type="submit" class="hide" name="clear" /><a href="#"  class=" btn-success" role="button">Comprar! <i class="fa fa-cart"></i></a></button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--FIM VOOS EM DESTAQUE-->
+                </div>
             </div>
-            <hr>
-            <div class="row">
-              <div class=" col-md-offset-4 col-sm-2"><button class="btn btn-default"><input type="submit" class="hide" name="clear" /><a href="#"  class=" btn-default" role="button">Limpar <i class="fa fa-eraser"></i></a></button></div>
-              <div class=" col-sm-2"><button class="btn btn-success"><input type="submit" class="hide" name="send" value="search/"><a href="#"  class=" btn-success" role="button">Pesquisar voo <i class="fa fa-search"></i> </a></button></div>
+
+        </div>
+        <div class=" row">
+
+            <div class="well  col-md-offset-4 col-md-4 col-xs-12">
+                <h4 class="text-center">PROMOCOES</h4>
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active text-center">
+                            <img class=" img-responsive" src="{% static 'images/promo1.jpg' %}" alt="Promo1">
+                        </div>
+
+                        <div class="item">
+                            <img class=" img-responsive" src="{% static 'images/promo2.png' %}" alt="Promo2">
+                        </div>
+
+                        <div class="item">
+                            <img class=" img-responsive" src="{% static 'images/promo3.png' %}" alt="promo3">
+                        </div>
+
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
             </div>
-          </form>
         </div>
-      </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel" style="height:600px;">
+                    <div class="x_title">
+                        <h2>Mais ofertas para você!</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <!-- price element -->
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <div class="pricing">
+                                        <div class="title">
+                                            <h4>Origem  {{ flight.id_origem.name }}</h4>
+                                            <p><h4>Destino {{ flight.id_destino.name }}</h4><p/>
+                                        </div>
+                                        <div class="x_content">
+                                            <div class="">
+                                                <div class="pricing_features">
+                                                    <ul class="list-unstyled text-left">
+                                                        <li>
+                                                            <strong>Ida <i class="fa fa-arrow-right"></i> {{ flight.data_decolagem }}</strong>
+                                                        </li>
+                                                        <li> 
+                                                           <strong>Chegada <i class="fa fa-arrow-left"></i> {{ flight.data_pouso }}</strong>
+                                                        </li>
+                                                        <li>
+                                                           <strong> {{flight.id_com_aerea.name}}</strong>
+                                                        </li>
+                                                        <li>
+                                                            <strong>Numero do voo {{ flight.id }}</strong>
+                                                        </li>
+                                                        <li>
+                                                            <img src="images/download.jpg" height="100" width="200">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="pricing_footer">
+                                                <a href="javascript:void(0);" class="btn btn-success btn-block" 
+                                                   role="button">COMPRAR!</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- price element -->
+
+                                <!-- price element -->
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <div class="pricing ui-ribbon-container">
+                                        <div class="ui-ribbon-wrapper">
+                                            <div class="ui-ribbon">
+                                                30% Off <i class="fa fa-tags"></i>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <h4>Origem  {{ flight.id_origem.name }}</h4>
+                                            <p><h4>Destino {{ flight.id_destino.name }}</h4><p/>
+                                        </div>
+                                        <div class="x_content">
+                                            <div class="">
+                                                <div class="pricing_features">
+                                                    <ul class="list-unstyled text-left">
+                                                        <li>
+                                                            <strong>Ida <i class="fa fa-arrow-right"></i> {{ flight.data_decolagem }}</strong>
+                                                        </li>
+                                                        <li> 
+                                                           <strong>Chegada <i class="fa fa-arrow-left"></i> {{ flight.data_pouso }}</strong>
+                                                        </li>
+                                                        <li>
+                                                           <strong> {{flight.id_com_aerea.name}}</strong>
+                                                        </li>
+                                                        <li>
+                                                            <strong>Numero do voo {{ flight.id }}</strong>
+                                                        </li>
+                                                        <li>
+                                                            <img src="images/download1.jpg" height="100" width="200">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="pricing_footer">
+                                                <a href="javascript:void(0);" class="btn btn-primary btn-block" 
+                                                   role="button">COMPRAR! </span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- price element -->
+
+                                <!-- price element -->
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <div class="pricing">
+                                        <div class="title">
+                                            <h4>Origem  {{ flight.id_origem.name }}</h4>
+                                            <p><h4>Destino {{ flight.id_destino.name }}</h4><p/>
+                                        </div>
+                                        <div class="x_content">
+                                            <div class="">
+                                                <div class="pricing_features">
+                                                    <ul class="list-unstyled text-left">
+                                                        <li>
+                                                            <strong>Ida <i class="fa fa-arrow-right"></i> {{ flight.data_decolagem }}</strong>
+                                                        </li>
+                                                        <li> 
+                                                           <strong>Chegada <i class="fa fa-arrow-left"></i> {{ flight.data_pouso }}</strong>
+                                                        </li>
+                                                        <li>
+                                                           <strong> {{flight.id_com_aerea.name}}</strong>
+                                                        </li>
+                                                        <li>
+                                                            <strong>Numero do voo {{ flight.id }}</strong>
+                                                        </li>
+                                                        <li>
+                                                            <img src="images/download(1).jpg" height="100" width="200">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="pricing_footer">
+                                                <a href="javascript:void(0);" class="btn btn-success btn-block" 
+                                                   role="button">COMPRAR!</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- price element -->
+
+                                <!-- price element -->
+                               <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <div class="pricing">
+                                        <div class="title">
+                                            <h4>Origem  {{ flight.id_origem.name }}</h4>
+                                            <p><h4>Destino {{ flight.id_destino.name }}</h4><p/>
+                                        </div>
+                                        <div class="x_content">
+                                            <div class="">
+                                                <div class="pricing_features">
+                                                    <ul class="list-unstyled text-left">
+                                                        <li>
+                                                            <strong>Ida <i class="fa fa-arrow-right"></i> {{ flight.data_decolagem }}</strong>
+                                                        </li>
+                                                        <li> 
+                                                           <strong>Chegada <i class="fa fa-arrow-left"></i> {{ flight.data_pouso }}</strong>
+                                                        </li>
+                                                        <li>
+                                                           <strong> {{flight.id_com_aerea.name}}</strong>
+                                                        </li>
+                                                        <li>
+                                                            <strong>Numero do voo {{ flight.id }}</strong>
+                                                        </li>
+                                                        <li>
+                                                            <img src="images/images.jpg" height="100" width="200">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="pricing_footer">
+                                                <a href="javascript:void(0);" class="btn btn-success btn-block" 
+                                                   role="button">COMPRAR!</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- price element -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!--VOOS EM DESTAQUE-->
-    <div class="col-md-6">
-      <div class="panel panel-primary">
-        <div class="panel-body">
-
-          <div class="x_panel tile">
-            <div>
-              <center><h3><b>Voos em destaque <i class="fa fa-plane"></i></b></h3>
-                <h4>Procurando por voos em promocao? Separamos esta oferta especial para voce!</h4></center>
-              </div>
-              <hr>
-              <a href="/flight/{{flight.id}}">
-
-                <h3>Origem  {{ flight.id_origem.name }}</h3>
-                <h3>Destino {{ flight.id_destino.name }}</h3>
-
-                <p>Ida <i class="fa fa-arrow-right"></i> {{ flight.data_decolagem }}</p>
-                <p>Chegada <i class="fa fa-arrow-left"></i> {{ flight.data_pouso }}</p>
-                <p>{{flight.id_com_aerea.name}}</p>
-                <p>Numero do voo {{ flight.id }}</p>
-
-                <span class="label label-danger" style="font-size: 30px;">
-                  Preco especial P${{ flight.preco }}
-                </span>
-              </div>
-            </a>
-          </div>
+    <!-- footer content -->
+    <footer>
+        <div class="pull-left">
+            <strong>Busão Aéreo<i class="fa fa-registered"></i> 2016</strong>
+            <p><label>Procure-nos nas redes sociais </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-facebook"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-instagram"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-twitter"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-pinterest"></i>
         </div>
-      </div>
-      <!--FIM VOOS EM DESTAQUE-->
-    </div>
-  </div>
-
-</div>
-<div class=" row">
-
-  <div class="well  col-md-offset-4 col-md-4 col-xs-12">
-    <h4 class="text-center">PROMOCOES</h4>
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner" role="listbox">
-        <div class="item active text-center">
-          <img class=" img-responsive" src="{% static 'images/promo1.jpg' %}" alt="Promo1">
-        </div>
-
-        <div class="item">
-          <img class=" img-responsive" src="{% static 'images/promo2.png' %}" alt="Promo2">
-        </div>
-
-        <div class="item">
-          <img class=" img-responsive" src="{% static 'images/promo3.png' %}" alt="promo3">
-        </div>
-
-      </div>
-
-      <!-- Left and right controls -->
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-  </div>
-</div>
-
-<script>
-$(".select2_single").select2({
-  allowClear: true,
-  width: '100%'
-});
-</script>
-
+        <div class="clearfix"></div>
+    </footer>
+    <!-- /footer content -->
+    <script>
+        $(".select2_single").select2({
+            allowClear: true,
+            width: '100%'
+        });
+    </script>
+</body>
+</html>
 {% endblock %}
